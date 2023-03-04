@@ -1,0 +1,388 @@
+<?xml version='1.0'?>
+
+<robot name="luna_rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:property name="robot_name" value="luna_rover" />
+	<xacro:property name="robot_chassis_mass" value="15"/>
+	<xacro:property name="robot_chassis_length" value="0.2"/>
+	<xacro:property name="robot_chassis_radius" value="0.25"/>
+	<xacro:property name="robot_caster_wheel_radius" value="0.05"/>
+	<xacro:property name="robot_caster_wheel_radius_collision" value="0.0499"/>
+
+	<xacro:property name="robot_wheel_mass" value="5"/>
+	<xacro:property name="robot_wheel_length" value="0.05"/>
+	<xacro:property name="robot_wheel_radius" value="0.1"/>
+
+	<xacro:property name="camera_mass" value="0.1"/>
+	<xacro:property name="hokoyu_mass" value="1e-5"/>
+
+	<!-- Make Chassis of Bot -->
+	<link name="chassis">
+		<pose>0 0 0.1 0 0 0</pose>
+
+		<inertial>
+			<mass value="35"/>
+      		<origin xyz="0.0 0 0" rpy=" 0 0 0"/>
+
+      		<inertia 
+      			ixx="0.944" ixy="0" ixz="0"
+      			iyy="0.439" iyz="0"
+      			izz="1.325"
+      		/>
+		</inertial>
+
+		<collision name="collision">
+			<origin xyz="0 0 0.05" rpy=" 0 0 0"/>
+			<geometry>
+				<box size="0.56 0.375 0.1"/>
+			</geometry>
+		</collision>
+
+		<visual name="chassis_visual">
+			<origin xyz="0 0 0.05" rpy=" 0 0 0"/>
+			<geometry>
+				<box size="0.56 0.375 0.1"/>
+			</geometry>
+
+		</visual>
+
+	</link>
+
+
+	<!-- Right Wheel Back -->
+	<link name="right_wheel_back">
+		<inertial>
+			<mass value="0.5"/>
+			<origin xyz="0 0 0" rpy="0 1.5705 1.5707"/>
+			<inertia
+				ixx="0.00219" ixy="0.0" ixz="0.0"
+				iyy="0.00219" iyz="0.0"
+				izz="0.00403"
+			/>
+		</inertial>
+
+		<visual>
+			<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+			<geometry>
+				<cylinder radius="0.127" length="0.064"/>
+			</geometry>
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+			<geometry>
+				<cylinder radius="0.127" length="0.064"/>
+			</geometry>
+		</collision>
+
+	</link>
+
+	<!-- Right Wheel Front-->
+	<link name="right_wheel_front">
+		<inertial>
+			<mass value="0.5"/>
+			<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+			<inertia
+				ixx="0.00219" ixy="0.0" ixz="0.0"
+				iyy="0.00219" iyz="0.0"
+				izz="0.00403"
+			/>
+		</inertial>
+
+		<visual>
+			<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+			<geometry>
+				<cylinder radius="0.127" length="0.064"/>
+			</geometry>
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+			<geometry>
+				<cylinder radius="0.127" length="0.064"/>
+			</geometry>
+		</collision>
+
+	</link>
+
+
+
+	<!-- Left wheel Back-->
+	<link name="left_wheel_back">
+		<inertial>
+			<mass value="0.5"/>
+			<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+			<inertia
+				ixx="0.00219" ixy="0.0" ixz="0.0"
+				iyy="0.00219" iyz="0.0"
+				izz="0.00403"
+			/>
+		</inertial>
+
+		<visual>
+			<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+			<geometry>
+				<cylinder radius="0.127" length="0.064"/>
+			</geometry>
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+			<geometry>
+				<cylinder radius="0.127" length="0.064"/>
+			</geometry>
+		</collision>
+
+	</link>
+
+	<!-- Left wheel Front-->
+	<link name="left_wheel_front">
+		<inertial>
+			<mass value="0.5"/>
+			<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+			<inertia
+				ixx="0.00219" ixy="0.0" ixz="0.0"
+				iyy="0.00219" iyz="0.0"
+				izz="0.00403"
+			/>
+		</inertial>
+
+		<visual>
+			<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+			<geometry>
+				<cylinder radius="0.127" length="0.064"/>
+			</geometry>
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+			<geometry>
+				<cylinder radius="0.127" length="0.064"/>
+			</geometry>
+		</collision>
+
+	</link>
+	
+	<!-- Hokuyo Lidar -->
+	<link name="hokuyo">
+		<inertial>
+			<mass value="1e-5"/>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+
+			<inertia
+		        ixx="1e-6" ixy="0.0" ixz="0.0"
+		        iyy="1e-6" iyz="0.0"
+		        izz="1e-6"
+		      />
+		</inertial>
+
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://atom/meshes/hokuyo.dae"/>
+			</geometry>
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<!-- Camera -->
+	<link name="camera">
+		<inertial>
+			<mass value="0.1"/>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<inertia
+		        ixx="1e-6" ixy="0.0" ixz="0.0"
+		        iyy="1e-6" iyz="0.0"
+		        izz="1e-6"
+		      />
+		</inertial>
+
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.05 0.05 0.05"/>
+			</geometry>
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.05 0.05 0.05"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<!-- Project center to the ground -->
+	<link name="robot_footprint"></link>
+
+	<!-- Define Joints -->
+
+	<!-- Right Wheel Joint Back-->
+	<joint type="continuous" name="right_wheel_hinge_back">
+	    <origin xyz="-0.26 -0.23 0" rpy="0 0 0" />
+	    <parent link="chassis"/>
+	    <child link="right_wheel_back" />
+	    <axis xyz="0 1 0" rpy="0 0 0" />
+	    <limit effort="10000" velocity="1000" />
+	    <dynamics damping="1.0" friction="1.0" />
+	</joint>
+
+	<!-- Right Wheel Joint Front-->
+	<joint type="continuous" name="right_wheel_hinge_front">
+	    <origin xyz="0.26 -0.23 0" rpy="0 0 0" />
+	    <parent link="chassis"/>
+	    <child link="right_wheel_front" />
+	    <axis xyz="0 1 0" rpy="0 0 0" />
+	    <limit effort="10000" velocity="1000" />
+	    <dynamics damping="1.0" friction="1.0" />
+	</joint>
+
+
+	<!-- Left Wheel Joint Back-->
+	<joint type="continuous" name="left_wheel_hinge_back">
+	    <origin xyz="-0.26 0.23 0" rpy="0 0 0" />
+	    <parent link="chassis"/>
+	    <child link="left_wheel_back" />
+	    <axis xyz="0 1 0" rpy="0 0 0" />
+	    <limit effort="10000" velocity="1000" />
+	    <dynamics damping="1.0" friction="1.0" />
+	</joint>
+
+	<!-- Left Wheel Joint Front-->
+	<joint type="continuous" name="left_wheel_hinge_front">
+	    <origin xyz="0.26 0.23 0" rpy="0 0 0" />
+	    <parent link="chassis"/>
+	    <child link="left_wheel_front" />
+	    <axis xyz="0 1 0" rpy="0 0 0" />
+	    <limit effort="10000" velocity="1000" />
+	    <dynamics damping="1.0" friction="1.0" />
+	</joint>
+
+	<!-- Camera Joint -->
+	<joint name="camera_joint" type="fixed">
+		<origin xyz="0.28 0 0" rpy="0 0 0" />
+		<parent link="chassis"/>
+		<child link="camera" />
+		<axis xyz="0 1 0"/>
+	</joint>
+
+	<!-- Hokoyu Joint -->
+	<joint name="hokuyo_joint" type="fixed">
+	    <origin xyz="0.24 0 0.1" rpy="0 0 0" />
+	    <parent link="chassis"/>
+	    <child link="hokuyo" />  
+	    <axis xyz="0 1 0"/> 
+	</joint>
+
+	<joint name="robot_footprint_joint" type="fixed">
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<parent link="robot_footprint"/>
+		<child link="chassis" />
+	</joint>
+
+    <gazebo>
+        <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+            <updateRate>5</updateRate>
+            <leftFrontJoint>left_wheel_hinge_front</leftFrontJoint>
+            <rightFrontJoint>right_wheel_hinge_front</rightFrontJoint>
+            <leftRearJoint>left_wheel_hinge_back</leftRearJoint>
+            <rightRearJoint>right_wheel_hinge_back</rightRearJoint>
+            <wheelSeparation>0.375</wheelSeparation>
+            <wheelDiameter>0.254</wheelDiameter>
+            <robotBaseFrame>robot_footprint</robotBaseFrame>
+            <torque>100</torque>
+
+            <topicName>cmd_vel</topicName>
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+
+            <commandTopic>cmd_vel</commandTopic>
+            <topic_name_twist>cmd_vel</topic_name_twist>
+            <topic_name_odometry>odom</topic_name_odometry>
+            <topic_name_joint>joint</topic_name_joint>
+
+            <broadcastTF>true</broadcastTF>
+
+            <covariance_x>0.0001</covariance_x>
+            <covariance_y>0.0001</covariance_y>
+            <covariance_yaw>0.01</covariance_yaw>
+        </plugin>
+    </gazebo>
+
+    <gazebo reference="camera">
+        <sensor type="camera" name="camera1">
+            <update_rate>10.0</update_rate>
+            <camera name="head">
+                <horizontal_fov>1.3962634</horizontal_fov>
+                <image>
+                    <width>800</width>
+                    <height>800</height>
+                    <format>R8G8B8</format>
+                </image>
+                <clip>
+                    <near>0.02</near>
+                    <far>300</far>
+                </clip>
+            </camera>
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                <robotNamespace>/luna_rover</robotNamespace>
+                <alwaysOn>true</alwaysOn>
+                <updateRate>0.0</updateRate>
+                <cameraName>camera</cameraName>
+                <imageTopicName>rgb/image_raw</imageTopicName>
+                <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+                <frameName>camera</frameName>
+                <hackBaseline>0.07</hackBaseline>
+                <distortionK1>0.0</distortionK1>
+                <distortionK2>0.0</distortionK2>
+                <distortionK3>0.0</distortionK3>
+                <distortionT1>0.0</distortionT1>
+                <distortionT2>0.0</distortionT2>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <!-- hokuyo -->
+    <gazebo reference="hokuyo">
+        <sensor type="ray" name="head_hokuyo_sensor">
+            <pose>0 0 0 0 0 0</pose>
+            <visualize>false</visualize>
+            <update_rate>15</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>720</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-1.570796</min_angle>
+                        <max_angle>1.570796</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.10</min>
+                    <max>30.0</max>
+                    <resolution>0.01</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <!-- Noise parameters based on published spec for Hokuyo laser
+                    achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+                    stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+                    reading. -->
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+            </ray>
+            <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+                <topicName>/scan</topicName>
+                <frameName>hokuyo</frameName>
+                <robotNamespace>/luna_rover</robotNamespace>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+</robot>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- rover pose -->
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0"/>
+    <arg name="ro" default="0"/>
+    <arg name="pi" default="0"/>
+    <arg name="ya" default="0"/>
+    <arg name="robot_name" default="luna_rover"/>
+
+    <!-- launch rviz & urdf -->
+    <include file="$(find luna_rover)/launch/rviz.launch"/>
+
+    <!-- get world file -->
+    <arg name="world_file" default="$(find luna_rover)/worlds/pillars.world"/>
+
+    <!-- launch Gazebo -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="use_sim_time" value="true"/>
+        <arg name="verbose" value="false"/>
+        <arg name="debug" value="false"/>
+        <arg name="gui" value="true"/>
+        <arg name="world_name" value="$(arg world_file)"/>
+    </include>
+
+    <!-- spawn robot Gazebo -->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+        respawn="false" output="screen" args="-urdf -param robot_description -model luna_rover
+        -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg ro) -P $(arg pi) -Y $(arg ya)"/>
+
+</launch>
