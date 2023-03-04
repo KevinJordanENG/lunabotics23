@@ -4,5 +4,3 @@ int main() {
    cout << "Hello, World!" << endl; // This prints Hello, World!
    return 0;
 }
-
-//testing push from Jetson
