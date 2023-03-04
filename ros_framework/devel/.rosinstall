@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/und-robotics/lunabotics23/ros_framework/devel/setup.sh
