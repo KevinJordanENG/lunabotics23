@@ -15,3 +15,7 @@
 /home/und-robotics/lunabotics23/ros_framework/install/share/mining_and_hopper/cmake/mining_and_hopperConfig.cmake
 /home/und-robotics/lunabotics23/ros_framework/install/share/mining_and_hopper/cmake/mining_and_hopperConfig-version.cmake
 /home/und-robotics/lunabotics23/ros_framework/install/share/mining_and_hopper/package.xml
+/home/und-robotics/lunabotics23/ros_framework/install/lib/pkgconfig/sys_release.pc
+/home/und-robotics/lunabotics23/ros_framework/install/share/sys_release/cmake/sys_releaseConfig.cmake
+/home/und-robotics/lunabotics23/ros_framework/install/share/sys_release/cmake/sys_releaseConfig-version.cmake
+/home/und-robotics/lunabotics23/ros_framework/install/share/sys_release/package.xml

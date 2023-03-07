@@ -935,6 +935,24 @@ mining_and_hopper/preinstall:
 .PHONY : mining_and_hopper/preinstall
 
 #=============================================================================
+# Directory level rules for directory sys_release
+
+# Convenience name for "all" pass in the directory.
+sys_release/all:
+
+.PHONY : sys_release/all
+
+# Convenience name for "clean" pass in the directory.
+sys_release/clean:
+
+.PHONY : sys_release/clean
+
+# Convenience name for "preinstall" pass in the directory.
+sys_release/preinstall:
+
+.PHONY : sys_release/preinstall
+
+#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.

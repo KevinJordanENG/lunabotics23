@@ -1,0 +1,8 @@
+prefix=/home/und-robotics/lunabotics23/ros_framework/install
+
+Name: sys_release
+Description: Description of sys_release
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

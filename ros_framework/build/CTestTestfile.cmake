@@ -7,3 +7,4 @@
 subdirs("gtest")
 subdirs("drivetrain")
 subdirs("mining_and_hopper")
+subdirs("sys_release")

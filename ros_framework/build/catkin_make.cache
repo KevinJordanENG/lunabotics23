@@ -1,2 +1,2 @@
-drivetrain:mining_and_hopper
+drivetrain:mining_and_hopper:sys_release
 -DCATKIN_DEVEL_PREFIX=/home/und-robotics/lunabotics23/ros_framework/devel -DCMAKE_INSTALL_PREFIX=/home/und-robotics/lunabotics23/ros_framework/install -G Unix Makefiles
