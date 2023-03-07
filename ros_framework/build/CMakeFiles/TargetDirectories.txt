@@ -57,3 +57,10 @@
 /home/und-robotics/lunabotics23/ros_framework/build/drivetrain/CMakeFiles/roscpp_generate_messages_nodejs.dir
 /home/und-robotics/lunabotics23/ros_framework/build/drivetrain/CMakeFiles/std_msgs_generate_messages_py.dir
 /home/und-robotics/lunabotics23/ros_framework/build/drivetrain/CMakeFiles/test.dir
+/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/install/strip.dir
+/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/edit_cache.dir
+/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/list_install_components.dir
+/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/test.dir
+/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/install/local.dir
+/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/rebuild_cache.dir
+/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/install.dir

@@ -11,3 +11,7 @@
 /home/und-robotics/lunabotics23/ros_framework/install/share/drivetrain/cmake/drivetrainConfig.cmake
 /home/und-robotics/lunabotics23/ros_framework/install/share/drivetrain/cmake/drivetrainConfig-version.cmake
 /home/und-robotics/lunabotics23/ros_framework/install/share/drivetrain/package.xml
+/home/und-robotics/lunabotics23/ros_framework/install/lib/pkgconfig/mining_and_hopper.pc
+/home/und-robotics/lunabotics23/ros_framework/install/share/mining_and_hopper/cmake/mining_and_hopperConfig.cmake
+/home/und-robotics/lunabotics23/ros_framework/install/share/mining_and_hopper/cmake/mining_and_hopperConfig-version.cmake
+/home/und-robotics/lunabotics23/ros_framework/install/share/mining_and_hopper/package.xml

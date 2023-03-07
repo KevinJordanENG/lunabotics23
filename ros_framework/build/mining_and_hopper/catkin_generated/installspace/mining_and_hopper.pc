@@ -1,0 +1,8 @@
+prefix=/home/und-robotics/lunabotics23/ros_framework/install
+
+Name: mining_and_hopper
+Description: Description of mining_and_hopper
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

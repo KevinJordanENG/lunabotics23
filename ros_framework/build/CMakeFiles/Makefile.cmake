@@ -15,9 +15,13 @@ set(CMAKE_MAKEFILE_DEPENDS
   "catkin_generated/order_packages.cmake"
   "drivetrain/catkin_generated/ordered_paths.cmake"
   "drivetrain/catkin_generated/package.cmake"
+  "mining_and_hopper/catkin_generated/ordered_paths.cmake"
+  "mining_and_hopper/catkin_generated/package.cmake"
   "/home/und-robotics/lunabotics23/ros_framework/src/CMakeLists.txt"
   "/home/und-robotics/lunabotics23/ros_framework/src/drivetrain/CMakeLists.txt"
   "/home/und-robotics/lunabotics23/ros_framework/src/drivetrain/package.xml"
+  "/home/und-robotics/lunabotics23/ros_framework/src/mining_and_hopper/CMakeLists.txt"
+  "/home/und-robotics/lunabotics23/ros_framework/src/mining_and_hopper/package.xml"
   "/opt/ros/melodic/share/catkin/cmake/../package.xml"
   "/opt/ros/melodic/share/catkin/cmake/all.cmake"
   "/opt/ros/melodic/share/catkin/cmake/assert.cmake"
@@ -175,6 +179,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "gtest/googlemock/CMakeFiles/CMakeDirectoryInformation.cmake"
   "gtest/googlemock/gtest/CMakeFiles/CMakeDirectoryInformation.cmake"
   "drivetrain/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "mining_and_hopper/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
