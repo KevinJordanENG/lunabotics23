@@ -131,6 +131,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/und-robotics/lunabotics23/ros_framework/build/gtest/cmake_install.cmake")
+  include("/home/und-robotics/lunabotics23/ros_framework/build/drivetrain/cmake_install.cmake")
 
 endif()
 
