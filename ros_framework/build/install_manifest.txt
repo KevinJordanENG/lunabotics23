@@ -7,6 +7,10 @@
 /home/und-robotics/lunabotics23/ros_framework/install/setup.zsh
 /home/und-robotics/lunabotics23/ros_framework/install/local_setup.zsh
 /home/und-robotics/lunabotics23/ros_framework/install/.rosinstall
+/home/und-robotics/lunabotics23/ros_framework/install/lib/pkgconfig/autonomy.pc
+/home/und-robotics/lunabotics23/ros_framework/install/share/autonomy/cmake/autonomyConfig.cmake
+/home/und-robotics/lunabotics23/ros_framework/install/share/autonomy/cmake/autonomyConfig-version.cmake
+/home/und-robotics/lunabotics23/ros_framework/install/share/autonomy/package.xml
 /home/und-robotics/lunabotics23/ros_framework/install/lib/pkgconfig/drivetrain.pc
 /home/und-robotics/lunabotics23/ros_framework/install/share/drivetrain/cmake/drivetrainConfig.cmake
 /home/und-robotics/lunabotics23/ros_framework/install/share/drivetrain/cmake/drivetrainConfig-version.cmake
@@ -19,3 +23,7 @@
 /home/und-robotics/lunabotics23/ros_framework/install/share/sys_release/cmake/sys_releaseConfig.cmake
 /home/und-robotics/lunabotics23/ros_framework/install/share/sys_release/cmake/sys_releaseConfig-version.cmake
 /home/und-robotics/lunabotics23/ros_framework/install/share/sys_release/package.xml
+/home/und-robotics/lunabotics23/ros_framework/install/lib/pkgconfig/teleop.pc
+/home/und-robotics/lunabotics23/ros_framework/install/share/teleop/cmake/teleopConfig.cmake
+/home/und-robotics/lunabotics23/ros_framework/install/share/teleop/cmake/teleopConfig-version.cmake
+/home/und-robotics/lunabotics23/ros_framework/install/share/teleop/package.xml

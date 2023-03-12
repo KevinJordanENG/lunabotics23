@@ -5,6 +5,8 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
+subdirs("autonomy")
 subdirs("drivetrain")
 subdirs("mining_and_hopper")
 subdirs("sys_release")
+subdirs("teleop")

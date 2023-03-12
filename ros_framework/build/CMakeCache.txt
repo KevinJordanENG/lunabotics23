@@ -284,6 +284,12 @@ _gtest_INCLUDES:FILEPATH=/usr/include/gtest/gtest.h
 //Path to a file.
 _gtest_SOURCES:FILEPATH=/usr/src/gtest/src/gtest.cc
 
+//Value Computed by CMake
+autonomy_BINARY_DIR:STATIC=/home/und-robotics/lunabotics23/ros_framework/build/autonomy
+
+//Value Computed by CMake
+autonomy_SOURCE_DIR:STATIC=/home/und-robotics/lunabotics23/ros_framework/src/autonomy
+
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/melodic/share/catkin/cmake
 
@@ -386,6 +392,12 @@ sys_release_BINARY_DIR:STATIC=/home/und-robotics/lunabotics23/ros_framework/buil
 
 //Value Computed by CMake
 sys_release_SOURCE_DIR:STATIC=/home/und-robotics/lunabotics23/ros_framework/src/sys_release
+
+//Value Computed by CMake
+teleop_BINARY_DIR:STATIC=/home/und-robotics/lunabotics23/ros_framework/build/teleop
+
+//Value Computed by CMake
+teleop_SOURCE_DIR:STATIC=/home/und-robotics/lunabotics23/ros_framework/src/teleop
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/melodic/share/xmlrpcpp/cmake
@@ -500,7 +512,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
