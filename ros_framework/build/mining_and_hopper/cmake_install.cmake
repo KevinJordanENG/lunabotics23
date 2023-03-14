@@ -52,3 +52,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mining_and_hopper" TYPE FILE FILES "/home/und-robotics/lunabotics23/ros_framework/src/mining_and_hopper/package.xml")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/mining_and_hopper" TYPE PROGRAM FILES "/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/catkin_generated/installspace/read_stuck_fault_GPIO_publisher.py")
+endif()
+
