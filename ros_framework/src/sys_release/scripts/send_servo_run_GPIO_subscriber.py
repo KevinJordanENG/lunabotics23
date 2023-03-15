@@ -12,6 +12,7 @@ SERVO_RUN_GPIO_PIN = 11
 def run_servo_command_callback(msg):
     GPIO.output(SERVO_RUN_GPIO_PIN, msg.data)
 
+#ROS node standard form
 if __name__ == '__main__':
     #initialize node
     rospy.init_node('send_servo_run_GPIO_subscriber')

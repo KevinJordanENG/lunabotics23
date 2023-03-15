@@ -52,3 +52,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/teleop" TYPE FILE FILES "/home/und-robotics/lunabotics23/ros_framework/src/teleop/package.xml")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/teleop" TYPE PROGRAM FILES "/home/und-robotics/lunabotics23/ros_framework/build/teleop/catkin_generated/installspace/live_video_feed.py")
+endif()
+
