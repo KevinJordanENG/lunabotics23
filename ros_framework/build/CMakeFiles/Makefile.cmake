@@ -33,6 +33,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/und-robotics/lunabotics23/ros_framework/src/mining_and_hopper/scripts/read_stuck_fault_GPIO_publisher.py"
   "/home/und-robotics/lunabotics23/ros_framework/src/sys_release/CMakeLists.txt"
   "/home/und-robotics/lunabotics23/ros_framework/src/sys_release/package.xml"
+  "/home/und-robotics/lunabotics23/ros_framework/src/sys_release/scripts/send_servo_run_GPIO_subscriber.py"
   "/home/und-robotics/lunabotics23/ros_framework/src/teleop/CMakeLists.txt"
   "/home/und-robotics/lunabotics23/ros_framework/src/teleop/package.xml"
   "/opt/ros/melodic/share/catkin/cmake/../package.xml"

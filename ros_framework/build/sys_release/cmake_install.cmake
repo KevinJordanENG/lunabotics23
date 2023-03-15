@@ -52,3 +52,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sys_release" TYPE FILE FILES "/home/und-robotics/lunabotics23/ros_framework/src/sys_release/package.xml")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sys_release" TYPE PROGRAM FILES "/home/und-robotics/lunabotics23/ros_framework/build/sys_release/catkin_generated/installspace/send_servo_run_GPIO_subscriber.py")
+endif()
+
