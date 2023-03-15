@@ -1,0 +1,8 @@
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/und-robotics/lunabotics23/robot_code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_ea1a6"
+[1/2] Building C object CMakeFiles/cmTC_ea1a6.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_ea1a6
+
+
