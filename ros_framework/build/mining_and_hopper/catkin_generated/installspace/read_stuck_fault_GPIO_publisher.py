@@ -12,7 +12,7 @@ if __name__ == '__main__':
     pub = rospy.Publisher('stuck_fault_state', Bool, queue_size = 10)
 
     GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(STUCK_FAULT_GPIO_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(STUCK_FAULT_GPIO_PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
     rate = rospy.Rate(10)
 
