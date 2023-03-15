@@ -29,3 +29,4 @@
 /home/und-robotics/lunabotics23/ros_framework/install/share/teleop/cmake/teleopConfig.cmake
 /home/und-robotics/lunabotics23/ros_framework/install/share/teleop/cmake/teleopConfig-version.cmake
 /home/und-robotics/lunabotics23/ros_framework/install/share/teleop/package.xml
+/home/und-robotics/lunabotics23/ros_framework/install/lib/teleop/live_video_feed.py
