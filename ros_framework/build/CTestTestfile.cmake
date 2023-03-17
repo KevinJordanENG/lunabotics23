@@ -7,6 +7,7 @@
 subdirs("gtest")
 subdirs("autonomy")
 subdirs("drivetrain")
+subdirs("launch")
 subdirs("mining_and_hopper")
 subdirs("sys_release")
 subdirs("teleop")

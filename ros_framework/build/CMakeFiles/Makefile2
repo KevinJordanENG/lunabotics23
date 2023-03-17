@@ -935,6 +935,24 @@ drivetrain/preinstall:
 .PHONY : drivetrain/preinstall
 
 #=============================================================================
+# Directory level rules for directory launch
+
+# Convenience name for "all" pass in the directory.
+launch/all:
+
+.PHONY : launch/all
+
+# Convenience name for "clean" pass in the directory.
+launch/clean:
+
+.PHONY : launch/clean
+
+# Convenience name for "preinstall" pass in the directory.
+launch/preinstall:
+
+.PHONY : launch/preinstall
+
+#=============================================================================
 # Directory level rules for directory mining_and_hopper
 
 # Convenience name for "all" pass in the directory.

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node pkg="teleop" type="live_video_feed.py" name="live_video_feed">
+        
+    </node>
+
+    <node pkg="teleop" type="IJKL_keyboard_steering_publisher.py" name="IJKL_keyboard_steering_publisher" output="screen" required="true">
+        
+    </node>
+
+    <node pkg="sys_release" type="send_servo_run_GPIO_subscriber.py" name="send_servo_run_GPIO_subscriber">
+        
+    </node>
+
+    <node pkg="mining_and_hopper" type="read_stuck_fault_GPIO_publisher.py" name="read_stuck_fault_GPIO_publisher">
+        
+    </node>
+
+</launch>
