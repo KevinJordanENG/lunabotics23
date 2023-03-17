@@ -7,6 +7,8 @@ cmake_minimum_required(VERSION 3.1)
 
 add_definitions(-std=c++11)
 
+add_executable(example example.cpp)
+include_directories(/home/lunabotics23/robot_code/include /home/lunabotics23/robot_code/lib)
 # Set the output folder where your program will be created
 set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
@@ -19,7 +21,7 @@ find_package(SDL2 REQUIRED)
 # The following folder will be included
 include_directories("${PROJECT_SOURCE_DIR}/include")
 
-add_executable(example ${PROJECT_SOURCE_DIR}/example.cpp)
+#add_executable(example ${PROJECT_SOURCE_DIR}/example.cpp)
 
 if (${CMAKE_LIBRARY_ARCHITECTURE} STREQUAL "arm-linux-gnueabihf") # Jetson TK1 / Pi
     set(PHOENIX_LIBS_DIR ${CMAKE_SOURCE_DIR}/lib/raspberry)

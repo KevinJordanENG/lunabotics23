@@ -1,5 +1,6 @@
 #include <iostream>
+#include <Phoenix.h>
 
 int main(int, char**) {
-    std::cout << "robot test 5!\n";
+    std::cout << "TEST!\n";
 }

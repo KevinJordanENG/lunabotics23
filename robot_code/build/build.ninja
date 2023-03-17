@@ -39,15 +39,6 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
   pool = console
   restat = 1
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
-
-#############################################
-# Utility command for edit_cache
-
-build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/und-robotics/lunabotics23/robot_code/build && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-  DESC = No interactive CMake dialog available...
-  restat = 1
-build edit_cache: phony CMakeFiles/edit_cache.util
 # =============================================================================
 # Object build statements for EXECUTABLE target example
 
@@ -59,7 +50,7 @@ build cmake_object_order_depends_target_example: phony
 build CMakeFiles/example.dir/example.cpp.o: CXX_COMPILER__example ../example.cpp || cmake_object_order_depends_target_example
   DEP_FILE = CMakeFiles/example.dir/example.cpp.o.d
   FLAGS = -g   -std=c++11 -pthread
-  INCLUDES = -I../include
+  INCLUDES = -I/home/lunabotics23/robot_code/include -I/home/lunabotics23/robot_code/lib -I../include
   OBJECT_DIR = CMakeFiles/example.dir
   OBJECT_FILE_DIR = CMakeFiles/example.dir
 
@@ -81,24 +72,13 @@ build ../bin/example: CXX_EXECUTABLE_LINKER__example CMakeFiles/example.dir/exam
   TARGET_PDB = example.dbg
 
 #############################################
-# Utility command for package_source
+# Utility command for edit_cache
 
-build CMakeFiles/package_source.util: CUSTOM_COMMAND
-  COMMAND = cd /home/und-robotics/lunabotics23/robot_code/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/und-robotics/lunabotics23/robot_code/build/CPackSourceConfig.cmake
-  DESC = Run CPack packaging tool for source...
-  pool = console
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/und-robotics/lunabotics23/robot_code/build && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
   restat = 1
-build package_source: phony CMakeFiles/package_source.util
-
-#############################################
-# Utility command for package
-
-build CMakeFiles/package.util: CUSTOM_COMMAND all
-  COMMAND = cd /home/und-robotics/lunabotics23/robot_code/build && /usr/bin/cpack --config ./CPackConfig.cmake
-  DESC = Run CPack packaging tool...
-  pool = console
-  restat = 1
-build package: phony CMakeFiles/package.util
+build edit_cache: phony CMakeFiles/edit_cache.util
 # =============================================================================
 # Target aliases.
 

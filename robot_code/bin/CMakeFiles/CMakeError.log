@@ -1,16 +1,52 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /home/und-robotics/lunabotics23/robot_code/bin/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/ninja" "cmTC_dd17f"
-[1/2] Building C object CMakeFiles/cmTC_dd17f.dir/CheckSymbolExists.c.o
-[2/2] Linking C executable cmTC_dd17f
-FAILED: cmTC_dd17f 
-: && /usr/bin/aarch64-linux-gnu-gcc   -rdynamic CMakeFiles/cmTC_dd17f.dir/CheckSymbolExists.c.o  -o cmTC_dd17f   && :
-CMakeFiles/cmTC_dd17f.dir/CheckSymbolExists.c.o: In function `main':
+Run Build Command:"/usr/bin/ninja" "cmTC_e16a3"
+[1/2] Building C object CMakeFiles/cmTC_e16a3.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_e16a3
+FAILED: cmTC_e16a3 
+: && /usr/bin/aarch64-linux-gnu-gcc   -rdynamic CMakeFiles/cmTC_e16a3.dir/CheckSymbolExists.c.o  -o cmTC_e16a3   && :
+CMakeFiles/cmTC_e16a3.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x14): undefined reference to `pthread_create'
 CheckSymbolExists.c:(.text+0x18): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
 ninja: build stopped: subcommand failed.
+
+File /home/und-robotics/lunabotics23/robot_code/bin/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/und-robotics/lunabotics23/robot_code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a1fb8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a1fb8.dir/build.make CMakeFiles/cmTC_a1fb8.dir/build
+make[1]: Entering directory '/home/und-robotics/lunabotics23/robot_code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a1fb8.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_a1fb8.dir/CheckSymbolExists.c.o   -c /home/und-robotics/lunabotics23/robot_code/bin/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_a1fb8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a1fb8.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_a1fb8.dir/CheckSymbolExists.c.o  -o cmTC_a1fb8 
+CMakeFiles/cmTC_a1fb8.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x14): undefined reference to `pthread_create'
+CheckSymbolExists.c:(.text+0x18): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_a1fb8.dir/build.make:97: recipe for target 'cmTC_a1fb8' failed
+make[1]: *** [cmTC_a1fb8] Error 1
+make[1]: Leaving directory '/home/und-robotics/lunabotics23/robot_code/bin/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_a1fb8/fast' failed
+make: *** [cmTC_a1fb8/fast] Error 2
 
 File /home/und-robotics/lunabotics23/robot_code/bin/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */

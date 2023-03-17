@@ -1,7 +1,7 @@
 [
 {
   "directory": "/home/und-robotics/lunabotics23/robot_code/build",
-  "command": "/usr/bin/aarch64-linux-gnu-g++   -I../include  -g   -std=c++11 -pthread -o CMakeFiles/example.dir/example.cpp.o -c /home/und-robotics/lunabotics23/robot_code/example.cpp",
+  "command": "/usr/bin/aarch64-linux-gnu-g++   -I/home/lunabotics23/robot_code/include -I/home/lunabotics23/robot_code/lib -I../include  -g   -std=c++11 -pthread -o CMakeFiles/example.dir/example.cpp.o -c /home/und-robotics/lunabotics23/robot_code/example.cpp",
   "file": "/home/und-robotics/lunabotics23/robot_code/example.cpp"
 }
 ]

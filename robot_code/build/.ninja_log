@@ -1,9 +1,0 @@
-# ninja log v5
-0	774	1678830540	CMakeFiles/main.dir/main.cpp.o	19d2f7b8b73cdeff
-775	995	1678830540	main	3a1c2c8c18cba116
-1	747	1678830572	CMakeFiles/main.dir/main.cpp.o	19d2f7b8b73cdeff
-747	959	1678830572	main	3a1c2c8c18cba116
-2	736	1678830716	CMakeFiles/main.dir/main.cpp.o	19d2f7b8b73cdeff
-736	943	1678830716	main	3a1c2c8c18cba116
-1	962	1678831568	CMakeFiles/example.dir/example.cpp.o	6c638c69b78517b0
-962	1242	1678831568	../bin/example	b83b7abe9619cb45
