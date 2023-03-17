@@ -5,9 +5,9 @@ import rospy
 from std_msgs.msg import Int16, Bool
 
 class stuck_fault_sub:
-    stuck_fault_flag = Bool()
 
     def __init__(self):
+        self.stuck_fault_flag = False
         self.stuck_fault_subscriber = rospy.Subscriber("stuck_fault_state", Bool, self.stuck_fault_flag_callback)
 
     def stuck_fault_flag_callback(self, msg):
@@ -15,22 +15,22 @@ class stuck_fault_sub:
 
 
 class run_mining_sub:
-    run_mining_flag = Bool()
 
     def __init__(self):
-        self.run_mining_subscriber = rospy.Subscriber("run_mining_state", Bool, self.run_mining_flag_callback)
+        self.run_mining_flag = False
+        self.run_mining_subscriber = rospy.Subscriber("run_mining_state", Bool, self.stuck_fault_flag_callback)
 
     def run_mining_flag_callback(self, msg):
-        self.run_mining_flag = msg.data
+        self.run_mining_flag = msg.date
 
 class run_hopper_sub:
-    run_hopper_flag = Bool()
 
     def __init__(self):
-        self.run_hopper_subscriber = rospy.Subscriber("run_hopper_state", Bool, self.run_hopper_flag_callback)
+        self.run_hopper_flag = False
+        self.run_hopper_subscriber = rospy.Subscriber("run_hopper_state", Bool, self.stuck_fault_flag_callback)
 
     def run_hopper_flag_callback(self, msg):
-        self.run_hopper_flag.data = msg.data
+        self.run_hopper_flag = msg.date
 
 class mining_motors_pub:
 
@@ -68,8 +68,8 @@ if __name__ == '__main__':
         #if run_mining.run_mining_flag == True:
             #while mining_cycle_complete_flag == False:
                 #print("A")
-        #if run_hopper.run_hopper_flag == True:
-        print(run_hopper.run_hopper_flag.data)
+        if run_hopper.run_hopper_flag == True:
+            hopper_motor_pub(0)
         
 
 
