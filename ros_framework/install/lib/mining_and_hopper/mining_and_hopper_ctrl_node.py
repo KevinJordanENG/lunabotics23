@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-#For all VEX Talon Motor control publishers 0=OFF, 1=FWD, 2=REV
+#For all VEX Talon Motor control publishers 0=OFF, 1=FWD, -1=REV
 
 #import needed libraries
 import rospy
@@ -73,6 +73,7 @@ if __name__ == '__main__':
     #null val for motor signals on startup / while waiting for execution
     non_cycle_null_val = 0
 
+    #keep node running unless CTRL C pressed
     while not rospy.is_shutdown():
         #initialize subscribers
         stuck_fault = stuck_fault_sub()
@@ -91,12 +92,12 @@ if __name__ == '__main__':
                     #shutdown mining, publish extensor=OFF, collector=OFF
                     mining_motors_pub(0, 0)
                     #add stuck_fault recovery cycle time to deployement timer
-                    deploy_timer += 20
+                    deploy_timer += 10
                     #start stuck recovery timer
-                    stuck_recovery_timer = time.time() + 20
+                    stuck_recovery_timer = time.time() + 10
                     while time.time() < stuck_recovery_timer:
                         #publish extensor=RTCT, collector=OFF
-                        mining_motors_pub(2, 0)
+                        mining_motors_pub(-1, 0)
                         print("stuck fault recovery retract")
                         rate.sleep()
                     #publish extensor=OFF, collector=OFF for transition back to mining
@@ -109,7 +110,7 @@ if __name__ == '__main__':
             retract_timer = time.time() + 30
             while time.time() < retract_timer:
                 #publish extensor=RTCT, collector=OFF
-                mining_motors_pub(2, 0)
+                mining_motors_pub(-1, 0)
                 print("retracting mining")
                 rate.sleep()
 
@@ -128,6 +129,5 @@ if __name__ == '__main__':
         mining_motors_pub(non_cycle_null_val, non_cycle_null_val)
         hopper_motor_pub(non_cycle_null_val)
         print("listening")
-
 
         rate.sleep()
