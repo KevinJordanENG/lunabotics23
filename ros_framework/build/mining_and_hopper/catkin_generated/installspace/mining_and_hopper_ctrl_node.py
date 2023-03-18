@@ -73,24 +73,46 @@ if __name__ == '__main__':
     #null val for motor signals on startup / while waiting for execution
     non_cycle_null_val = 0
 
-    #mining_cycle_complete_flag = False
-
     while not rospy.is_shutdown():
         #initialize subscribers
         stuck_fault = stuck_fault_sub()
         run_mining = run_mining_sub()
         run_hopper = run_hopper_sub()
         
-
         #if command to run mining is received activate system
         if run_mining.run_mining_flag.data == True:
-            #set timer to run mining for 30s
-            timer2 = time.time() + 30
-            while time.time() < timer2:
-                
+            #start deploy timer
+            deploy_timer = time.time() + 30
+            while time.time() < deploy_timer:
+                #publish extensor=EXT, collector=FWD
                 mining_motors_pub(1, 1)
-                print("Running mining")
+                #stuck_fault signal received?
+                if stuck_fault.stuck_fault_flag.data == True:
+                    #shutdown mining, publish extensor=OFF, collector=OFF
+                    mining_motors_pub(0, 0)
+                    #add stuck_fault recovery cycle time to deployement timer
+                    deploy_timer += 20
+                    #start stuck recovery timer
+                    stuck_recovery_timer = time.time() + 20
+                    while time.time() < stuck_recovery_timer:
+                        #publish extensor=RTCT, collector=OFF
+                        mining_motors_pub(2, 0)
+                        print("stuck fault recovery retract")
+                        rate.sleep()
+                    #publish extensor=OFF, collector=OFF for transition back to mining
+                    mining_motors_pub(0, 0)
+                print("deploying mining")
                 rate.sleep()
+            #publish extensor=OFF, collector=OFF for transition to retraction cycle
+            mining_motors_pub(0, 0)
+            #start retract timer
+            retract_timer = time.time() + 30
+            while time.time() < retract_timer:
+                #publish extensor=RTCT, collector=OFF
+                mining_motors_pub(2, 0)
+                print("retracting mining")
+                rate.sleep()
+
         
         #if command to run hopper is received activate system
         if run_hopper.run_hopper_flag.data == True:
@@ -102,7 +124,7 @@ if __name__ == '__main__':
                 print("Running hopper")
                 rate.sleep()
 
-
+        #when not actively cycling the mining or hopper systems publish OFF commands to motors
         mining_motors_pub(non_cycle_null_val, non_cycle_null_val)
         hopper_motor_pub(non_cycle_null_val)
         print("listening")

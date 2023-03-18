@@ -17,4 +17,8 @@
         
     </node>
 
+    <node pkg="mining_and_hopper" type="mining_and_hopper_ctrl_node.py" name="mining_and_hopper_ctrl_node">
+        
+    </node>
+
 </launch>
