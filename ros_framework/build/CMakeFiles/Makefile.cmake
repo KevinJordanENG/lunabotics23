@@ -43,6 +43,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/und-robotics/lunabotics23/ros_framework/src/teleop/package.xml"
   "/home/und-robotics/lunabotics23/ros_framework/src/teleop/scripts/IJKL_keyboard_steering_publisher.py"
   "/home/und-robotics/lunabotics23/ros_framework/src/teleop/scripts/live_video_feed.py"
+  "/home/und-robotics/lunabotics23/ros_framework/src/teleop/scripts/test_node.py"
   "/opt/ros/melodic/share/catkin/cmake/../package.xml"
   "/opt/ros/melodic/share/catkin/cmake/all.cmake"
   "/opt/ros/melodic/share/catkin/cmake/assert.cmake"

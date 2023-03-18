@@ -36,3 +36,4 @@
 /home/und-robotics/lunabotics23/ros_framework/install/share/teleop/package.xml
 /home/und-robotics/lunabotics23/ros_framework/install/lib/teleop/live_video_feed.py
 /home/und-robotics/lunabotics23/ros_framework/install/lib/teleop/IJKL_keyboard_steering_publisher.py
+/home/und-robotics/lunabotics23/ros_framework/install/lib/teleop/test_node.py

@@ -60,3 +60,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/teleop" TYPE PROGRAM FILES "/home/und-robotics/lunabotics23/ros_framework/build/teleop/catkin_generated/installspace/IJKL_keyboard_steering_publisher.py")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/teleop" TYPE PROGRAM FILES "/home/und-robotics/lunabotics23/ros_framework/build/teleop/catkin_generated/installspace/test_node.py")
+endif()
+

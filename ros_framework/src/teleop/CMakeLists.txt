@@ -162,6 +162,7 @@ include_directories(
 catkin_install_python(PROGRAMS
     scripts/live_video_feed.py
     scripts/IJKL_keyboard_steering_publisher.py
+    scripts/test_node.py
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
