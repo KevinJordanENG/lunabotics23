@@ -98,11 +98,11 @@ if __name__ == '__main__':
                     while time.time() < stuck_recovery_timer:
                         #publish extensor=RTCT, collector=OFF
                         mining_motors_pub(-1, 0)
-                        print("stuck fault recovery retract")
+                        #print("stuck fault recovery retract")
                         rate.sleep()
                     #publish extensor=OFF, collector=OFF for transition back to mining
                     mining_motors_pub(0, 0)
-                print("deploying mining")
+                #print("deploying mining")
                 rate.sleep()
             #publish extensor=OFF, collector=OFF for transition to retraction cycle
             mining_motors_pub(0, 0)
@@ -111,7 +111,7 @@ if __name__ == '__main__':
             while time.time() < retract_timer:
                 #publish extensor=RTCT, collector=OFF
                 mining_motors_pub(-1, 0)
-                print("retracting mining")
+                #print("retracting mining")
                 rate.sleep()
 
         
@@ -122,12 +122,12 @@ if __name__ == '__main__':
             while time.time() < hopper_timer:
                 #publish hopper run FWD signal (1)
                 hopper_motor_pub(1)
-                print("Running hopper")
+                #print("Running hopper")
                 rate.sleep()
 
         #when not actively cycling the mining or hopper systems publish OFF commands to motors
         mining_motors_pub(non_cycle_null_val, non_cycle_null_val)
         hopper_motor_pub(non_cycle_null_val)
-        print("listening")
+        #print("listening")
 
         rate.sleep()

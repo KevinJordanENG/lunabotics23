@@ -20,6 +20,9 @@ if __name__ == '__main__':
     print("-u=FWD+LEFT---o=FWD+RIGHT---n=REV+LEFT---,=REV+RIGHT-")
     print("-s=SLOW---f=FAST---d=DPLY---x=MINE---h=HOP---t=STUCK-")
     print("-----------------------------------------------------")
+    print("-AFTER-ANY-d/x/h/t-COMMANDS-MUST-PRESS-NON-CODED-KEY-")
+    print("-----TO-CLEAR-SENT-COMMAND---c=CLEAR-RECOMMENDED-----")
+    print("-----------------------------------------------------")
 
     #setup publishing topics
     pub_x = rospy.Publisher('x_cmd_velocity', Int16, queue_size = 10)
@@ -131,6 +134,7 @@ if __name__ == '__main__':
             break
 
         #Any other keypress sets motor commands to OFF
+        #Also CLEARS sent HOPPER RUN, MINING RUN, DEPLOY SERVO, STUCK commands
         else:
             x = 0
             theta = 0
