@@ -2,6 +2,7 @@
 
 #import needed libraries
 import rospy
+import time
 from std_msgs.msg import Int16, Bool
 
 class stuck_fault_sub:
@@ -59,6 +60,7 @@ if __name__ == '__main__':
     rospy.init_node('mining_and_hopper_ctrl_node')
 
     startup_null_val = 0
+    hopper_cycle_complete_flag = False
     mining_cycle_complete_flag = False
 
     while not rospy.is_shutdown():
@@ -68,8 +70,15 @@ if __name__ == '__main__':
         #if run_mining.run_mining_flag == True:
             #while mining_cycle_complete_flag == False:
                 #print("A")
-        #if run_hopper.run_hopper_flag == True:
-        print(run_hopper.run_hopper_flag.data)
-        
-
-
+        if run_hopper.run_hopper_flag.data == True:
+            if hopper_cycle_complete_flag == False:
+                timer1 = time.time() + 15
+                while time.time() < timer1:
+                    print("Running hopper")
+                hopper_cycle_complete_flag = True
+            elif hopper_cycle_complete_flag == True:
+                timer2 = time.time() + 5
+                while time.time() < timer2:
+                    print("waiting for hoper reset")
+                hopper_cycle_complete_flag = False
+        print("COMPLETE")
