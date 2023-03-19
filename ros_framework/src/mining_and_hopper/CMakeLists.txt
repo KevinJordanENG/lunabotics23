@@ -104,7 +104,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
    INCLUDE_DIRS include
-   LIBRARIES ${PROJECT_NAME}
+   LIBRARIES hopper_motor_subscriber
    CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
@@ -124,7 +124,6 @@ include_directories(
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/mining_and_hopper.cpp
 # )
-target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${PROJECT_SOURCE_DIR}/lib/LIBRARYNEEDSHERE.so)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -147,9 +146,9 @@ target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${PROJECT_SOURCE_DIR}/
   add_dependencies(hopper_motor_subscriber ${hopper_motor_subscriber_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(hopper_motor_subscriber
-  ${catkin_LIBRARIES}
-)
+target_link_libraries(hopper_motor_subscriber ${catkin_LIBRARIES})
+target_link_libraries(hopper_motor_subscriber ${catkin_LIBRARIES} ${PROJECT_SOURCE_DIR}/lib/libCTRE_Phoenix.so)
+target_link_libraries(hopper_motor_subscriber ${catkin_LIBRARIES} ${PROJECT_SOURCE_DIR}/lib/libCTRE_PhoenixCCI.so)
 
 #############
 ## Install ##
@@ -174,7 +173,7 @@ catkin_install_python(PROGRAMS
 
 ## Mark libraries for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_libraries.html
-install(TARGETS ${PROJECT_NAME}
+install(TARGETS hopper_motor_subscriber
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
@@ -183,7 +182,7 @@ install(TARGETS ${PROJECT_NAME}
 ## Mark cpp header files for installation
 install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-  FILES_MATCHING PATTERN "*.h"
+#   FILES_MATCHING PATTERN "*.h"
 #   PATTERN ".svn" EXCLUDE
 )
 
