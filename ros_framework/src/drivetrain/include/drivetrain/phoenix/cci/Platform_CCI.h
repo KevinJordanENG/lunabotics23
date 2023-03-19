@@ -1,7 +1,7 @@
 #pragma once
 
-#include "mining_and_hopper/phoenix/cci/CCI.h"
-#include "mining_and_hopper/phoenix/platform/Platform.h"
+#include "drivetrain/phoenix/cci/CCI.h"
+#include "drivetrain/phoenix/platform/Platform.h"
 #include <stdint.h>
 
 using namespace ctre::phoenix::platform;

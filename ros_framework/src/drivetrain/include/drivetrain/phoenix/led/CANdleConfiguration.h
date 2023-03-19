@@ -1,8 +1,8 @@
 #pragma once
 
-#include "mining_and_hopper/phoenix/CustomParamConfiguration.h"
-#include "mining_and_hopper/phoenix/led/CANdleLedStripType.h"
-#include "mining_and_hopper/phoenix/led/VBatOutputMode.h"
+#include "drivetrain/phoenix/CustomParamConfiguration.h"
+#include "drivetrain/phoenix/led/CANdleLedStripType.h"
+#include "drivetrain/phoenix/led/VBatOutputMode.h"
 #include <string>
 
 namespace ctre{ namespace phoenix{ namespace led{

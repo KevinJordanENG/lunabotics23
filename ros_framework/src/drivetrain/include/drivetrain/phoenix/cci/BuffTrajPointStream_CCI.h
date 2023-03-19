@@ -1,7 +1,7 @@
 #pragma once
 
-#include "mining_and_hopper/phoenix/cci/CCI.h"
-#include "mining_and_hopper/phoenix/ErrorCode.h"
+#include "drivetrain/phoenix/cci/CCI.h"
+#include "drivetrain/phoenix/ErrorCode.h"
 #include <set>
 #include <cstddef>
 

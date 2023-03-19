@@ -1,18 +1,18 @@
 #pragma once
 
-#include "mining_and_hopper/phoenix/led/Animation.h"
-#include "mining_and_hopper/phoenix/led/BaseStandardAnimation.h"
-#include "mining_and_hopper/phoenix/led/BaseTwoSizeAnimation.h"
-#include "mining_and_hopper/phoenix/led/CANdleFaults.h"
-#include "mining_and_hopper/phoenix/led/CANdleStatusFrame.h"
-#include "mining_and_hopper/phoenix/led/CANdleControlFrame.h"
-#include "mining_and_hopper/phoenix/led/CANdleConfiguration.h"
-#include "mining_and_hopper/phoenix/led/CANdleConfigUtil.h"
-#include "mining_and_hopper/phoenix/led/CANdleLedStripType.h"
-#include "mining_and_hopper/phoenix/led/VBatOutputMode.h"
-#include "mining_and_hopper/phoenix/cci/CANdle_CCI.h"
-#include "mining_and_hopper/phoenix/paramEnum.h"
-#include "mining_and_hopper/phoenix/ErrorCode.h"
+#include "drivetrain/phoenix/led/Animation.h"
+#include "drivetrain/phoenix/led/BaseStandardAnimation.h"
+#include "drivetrain/phoenix/led/BaseTwoSizeAnimation.h"
+#include "drivetrain/phoenix/led/CANdleFaults.h"
+#include "drivetrain/phoenix/led/CANdleStatusFrame.h"
+#include "drivetrain/phoenix/led/CANdleControlFrame.h"
+#include "drivetrain/phoenix/led/CANdleConfiguration.h"
+#include "drivetrain/phoenix/led/CANdleConfigUtil.h"
+#include "drivetrain/phoenix/led/CANdleLedStripType.h"
+#include "drivetrain/phoenix/led/VBatOutputMode.h"
+#include "drivetrain/phoenix/cci/CANdle_CCI.h"
+#include "drivetrain/phoenix/paramEnum.h"
+#include "drivetrain/phoenix/ErrorCode.h"
 
 namespace ctre{ namespace phoenix{ namespace led{
 

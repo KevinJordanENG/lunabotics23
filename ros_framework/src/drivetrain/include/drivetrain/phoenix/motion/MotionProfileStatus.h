@@ -1,7 +1,7 @@
 #pragma once
 
-#include "mining_and_hopper/phoenix/motion/SetValueMotionProfile.h"
-#include "mining_and_hopper/phoenix/motion/TrajectoryPoint.h"
+#include "drivetrain/phoenix/motion/SetValueMotionProfile.h"
+#include "drivetrain/phoenix/motion/TrajectoryPoint.h"
 
 namespace ctre {
 namespace phoenix {

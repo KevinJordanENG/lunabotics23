@@ -1,8 +1,8 @@
 #pragma once
 #include <stdint.h>
-#include "mining_and_hopper/phoenix/ErrorCode.h"
-#include "mining_and_hopper/phoenix/cci/BuffTrajPointStream_CCI.h"
-#include "mining_and_hopper/phoenix/motion/TrajectoryPoint.h"
+#include "drivetrain/phoenix/ErrorCode.h"
+#include "drivetrain/phoenix/cci/BuffTrajPointStream_CCI.h"
+#include "drivetrain/phoenix/motion/TrajectoryPoint.h"
 namespace ctre {
 	namespace phoenix {
 		namespace motion {

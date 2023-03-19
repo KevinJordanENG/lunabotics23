@@ -1,6 +1,6 @@
 #pragma once
 
-#include "mining_and_hopper/phoenix/cci/CCI.h"
+#include "drivetrain/phoenix/cci/CCI.h"
 
 extern "C" {
     CCIEXPORT void c_FeedEnable(int timeoutMs);
