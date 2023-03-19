@@ -103,9 +103,9 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES drivetrain
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+   INCLUDE_DIRS include
+   LIBRARIES FRight_motor_subscriber
+   CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
 
@@ -116,7 +116,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -133,7 +133,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/drivetrain_node.cpp)
+add_executable(FRight_motor_subscriber src/drivetrain_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -143,12 +143,12 @@ include_directories(
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(FRight_motor_subscriber ${FRight_motor_subscriber_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(${PROJECT_NAME}_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(FRight_motor_subscriber ${catkin_LIBRARIES})
+target_link_libraries(FRight_motor_subscriber ${catkin_LIBRARIES} ${PROJECT_SOURCE_DIR}/lib/libCTRE_Phoenix.so)
+target_link_libraries(FRight_motor_subscriber ${catkin_LIBRARIES} ${PROJECT_SOURCE_DIR}/lib/libCTRE_PhoenixCCI.so)
 
 #############
 ## Install ##
@@ -172,18 +172,18 @@ include_directories(
 
 ## Mark libraries for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_libraries.html
-# install(TARGETS ${PROJECT_NAME}
-#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
-# )
+install(TARGETS FRight_motor_subscriber
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
+)
 
 ## Mark cpp header files for installation
-# install(DIRECTORY include/${PROJECT_NAME}/
-#   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 #   FILES_MATCHING PATTERN "*.h"
 #   PATTERN ".svn" EXCLUDE
-# )
+)
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 # install(FILES
