@@ -264,7 +264,7 @@ gtest/googlemock/preinstall: gtest/googlemock/gtest/preinstall
 gtest/googlemock/CMakeFiles/gmock_main.dir/all:
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles --progress-num=4,5,6,7 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles --progress-num=6,7,8,9 "Built target gmock_main"
 .PHONY : gtest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -296,7 +296,7 @@ clean: gtest/googlemock/CMakeFiles/gmock_main.dir/clean
 gtest/googlemock/CMakeFiles/gmock.dir/all:
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles --progress-num=1,2,3 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles --progress-num=3,4,5 "Built target gmock"
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -347,7 +347,7 @@ gtest/googlemock/gtest/preinstall:
 gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/all: gtest/googlemock/gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles --progress-num=10,11 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles --progress-num=12,13 "Built target gtest_main"
 .PHONY : gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -379,7 +379,7 @@ clean: gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/clean
 gtest/googlemock/gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles --progress-num=8,9 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles --progress-num=10,11 "Built target gtest"
 .PHONY : gtest/googlemock/gtest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -920,12 +920,12 @@ clean: autonomy/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 # Directory level rules for directory drivetrain
 
 # Convenience name for "all" pass in the directory.
-drivetrain/all:
+drivetrain/all: drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all
 
 .PHONY : drivetrain/all
 
 # Convenience name for "clean" pass in the directory.
-drivetrain/clean:
+drivetrain/clean: drivetrain/CMakeFiles/FRight_motor_subscriber.dir/clean
 
 .PHONY : drivetrain/clean
 
@@ -933,6 +933,57 @@ drivetrain/clean:
 drivetrain/preinstall:
 
 .PHONY : drivetrain/preinstall
+
+#=============================================================================
+# Target rules for target drivetrain/CMakeFiles/FRight_motor_subscriber.dir
+
+# All Build rule for target.
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all: autonomy/CMakeFiles/roscpp_generate_messages_py.dir/all
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all: autonomy/CMakeFiles/roscpp_generate_messages_eus.dir/all
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all: autonomy/CMakeFiles/roscpp_generate_messages_lisp.dir/all
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all: autonomy/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all: autonomy/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all: autonomy/CMakeFiles/roscpp_generate_messages_cpp.dir/all
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all: autonomy/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all: autonomy/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all: autonomy/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all: autonomy/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all: autonomy/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all: autonomy/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all: autonomy/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all: autonomy/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all: autonomy/CMakeFiles/std_msgs_generate_messages_py.dir/all
+	$(MAKE) -f drivetrain/CMakeFiles/FRight_motor_subscriber.dir/build.make drivetrain/CMakeFiles/FRight_motor_subscriber.dir/depend
+	$(MAKE) -f drivetrain/CMakeFiles/FRight_motor_subscriber.dir/build.make drivetrain/CMakeFiles/FRight_motor_subscriber.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles --progress-num=1,2 "Built target FRight_motor_subscriber"
+.PHONY : drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all
+
+# Include target in all.
+all: drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 drivetrain/CMakeFiles/FRight_motor_subscriber.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles 0
+.PHONY : drivetrain/CMakeFiles/FRight_motor_subscriber.dir/rule
+
+# Convenience name for target.
+FRight_motor_subscriber: drivetrain/CMakeFiles/FRight_motor_subscriber.dir/rule
+
+.PHONY : FRight_motor_subscriber
+
+# clean rule for target.
+drivetrain/CMakeFiles/FRight_motor_subscriber.dir/clean:
+	$(MAKE) -f drivetrain/CMakeFiles/FRight_motor_subscriber.dir/build.make drivetrain/CMakeFiles/FRight_motor_subscriber.dir/clean
+.PHONY : drivetrain/CMakeFiles/FRight_motor_subscriber.dir/clean
+
+# clean rule for target.
+clean: drivetrain/CMakeFiles/FRight_motor_subscriber.dir/clean
+
+.PHONY : clean
 
 #=============================================================================
 # Directory level rules for directory launch
@@ -991,7 +1042,7 @@ mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFile
 mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/std_msgs_generate_messages_py.dir/all
 	$(MAKE) -f mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/build.make mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/depend
 	$(MAKE) -f mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/build.make mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles --progress-num=12,13 "Built target hopper_motor_subscriber"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles --progress-num=14,15 "Built target hopper_motor_subscriber"
 .PHONY : mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all
 
 # Include target in all.

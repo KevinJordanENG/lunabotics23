@@ -234,5 +234,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "autonomy/CMakeFiles/std_msgs_generate_messages_nodejs.dir/DependInfo.cmake"
   "autonomy/CMakeFiles/roscpp_generate_messages_nodejs.dir/DependInfo.cmake"
   "autonomy/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake"
+  "drivetrain/CMakeFiles/FRight_motor_subscriber.dir/DependInfo.cmake"
   "mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/DependInfo.cmake"
   )

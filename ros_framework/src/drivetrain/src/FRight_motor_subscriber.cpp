@@ -37,12 +37,12 @@ int main(int argc, char **argv){
     command_data input_sigs;
 
     ros::init(argc, argv, "FRight_motor_subscriber");
-    ros::NodeHandle hopper_nh;
+    ros::NodeHandle FRight_nh;
     ros::Rate loop_rate(50);
-    ros::Subscriber hopper_sub = 
-        hopper_nh.subscribe("x_cmd_velocity", 1000, &command_data::runFRightMotorXCallback, &input_sig);
-    ros::Subscriber hopper_sub = 
-        hopper_nh.subscribe("theta_cmd_velocity", 1000, &command_data::runFRightMotorThetaCallback, &input_sig);
+    ros::Subscriber x_sub = 
+        FRight_nh.subscribe("x_cmd_velocity", 1000, &command_data::runFRightMotorXCallback, &input_sigs);
+    ros::Subscriber theta_sub = 
+        FRight_nh.subscribe("theta_cmd_velocity", 1000, &command_data::runFRightMotorThetaCallback, &input_sigs);
 
     while (ros::ok()) {
         ros::spinOnce();

@@ -3,6 +3,6 @@ prefix=/home/und-robotics/lunabotics23/ros_framework/devel
 Name: drivetrain
 Description: Description of drivetrain
 Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
+Cflags: -I/home/und-robotics/lunabotics23/ros_framework/src/drivetrain/include
+Libs: -L${prefix}/lib -lFRight_motor_subscriber
+Requires: roscpp rospy std_msgs

@@ -480,6 +480,19 @@ std_msgs_generate_messages_py/fast:
 .PHONY : std_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named FRight_motor_subscriber
+
+# Build rule for target.
+FRight_motor_subscriber: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FRight_motor_subscriber
+.PHONY : FRight_motor_subscriber
+
+# fast build rule for target.
+FRight_motor_subscriber/fast:
+	$(MAKE) -f drivetrain/CMakeFiles/FRight_motor_subscriber.dir/build.make drivetrain/CMakeFiles/FRight_motor_subscriber.dir/build
+.PHONY : FRight_motor_subscriber/fast
+
+#=============================================================================
 # Target rules for targets named hopper_motor_subscriber
 
 # Build rule for target.
@@ -529,6 +542,7 @@ help:
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
+	@echo "... FRight_motor_subscriber"
 	@echo "... hopper_motor_subscriber"
 .PHONY : help
 
