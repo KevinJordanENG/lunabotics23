@@ -1,8 +1,8 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.1)
 project(mining_and_hopper)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -147,8 +147,8 @@ include_directories(
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(hopper_motor_subscriber ${catkin_LIBRARIES})
-target_link_libraries(hopper_motor_subscriber ${catkin_LIBRARIES} ${PROJECT_SOURCE_DIR}/lib/libCTRE_Phoenix.so)
-target_link_libraries(hopper_motor_subscriber ${catkin_LIBRARIES} ${PROJECT_SOURCE_DIR}/lib/libCTRE_PhoenixCCI.so)
+target_link_libraries(hopper_motor_subscriber ${catkin_LIBRARIES} /usr/lib/libCTRE_Phoenix.so)
+target_link_libraries(hopper_motor_subscriber ${catkin_LIBRARIES} /usr/lib/libCTRE_PhoenixCCI.so)
 
 #############
 ## Install ##

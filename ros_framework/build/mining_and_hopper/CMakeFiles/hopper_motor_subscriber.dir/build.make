@@ -126,7 +126,7 @@ hopper_motor_subscriber_EXTERNAL_OBJECTS =
 /home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /usr/lib/aarch64-linux-gnu/libboost_atomic.so
 /home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /usr/lib/aarch64-linux-gnu/libpthread.so
 /home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4
-/home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /home/und-robotics/lunabotics23/ros_framework/src/mining_and_hopper/lib/libCTRE_Phoenix.so
+/home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /usr/lib/libCTRE_Phoenix.so
 /home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /opt/ros/melodic/lib/libroscpp.so
 /home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /usr/lib/aarch64-linux-gnu/libboost_filesystem.so
 /home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /opt/ros/melodic/lib/librosconsole.so
@@ -145,9 +145,9 @@ hopper_motor_subscriber_EXTERNAL_OBJECTS =
 /home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /usr/lib/aarch64-linux-gnu/libboost_atomic.so
 /home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /usr/lib/aarch64-linux-gnu/libpthread.so
 /home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4
-/home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /home/und-robotics/lunabotics23/ros_framework/src/mining_and_hopper/lib/libCTRE_PhoenixCCI.so
-/home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /home/und-robotics/lunabotics23/ros_framework/src/mining_and_hopper/lib/libCTRE_Phoenix.so
-/home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /home/und-robotics/lunabotics23/ros_framework/src/mining_and_hopper/lib/libCTRE_PhoenixCCI.so
+/home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /usr/lib/libCTRE_PhoenixCCI.so
+/home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /usr/lib/libCTRE_Phoenix.so
+/home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: /usr/lib/libCTRE_PhoenixCCI.so
 /home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber: mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/und-robotics/lunabotics23/ros_framework/devel/lib/mining_and_hopper/hopper_motor_subscriber"
 	cd /home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hopper_motor_subscriber.dir/link.txt --verbose=$(VERBOSE)
