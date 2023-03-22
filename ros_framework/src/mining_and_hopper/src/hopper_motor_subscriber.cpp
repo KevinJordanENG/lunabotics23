@@ -88,7 +88,7 @@ int main(int argc, char **argv){
 		drive(0, 0, 0, 0, 0);
 
         ros::spinOnce();
-        loop_rate.sleep();
+        
         if (input_sig.hopper_motor_input_cmd == 0) {
             std::cout << "OFF\n";
             belt = 0;
@@ -101,12 +101,10 @@ int main(int argc, char **argv){
             std::cout << "REV\n";
             belt = -0.75;
         }
-        else {
-            std::cout << "OFF\n";
-            belt = 0.0;
-        }
 
         drive(0, 0, 0, 0, belt);
+        ctre::phoenix::unmanaged::Unmanaged::FeedEnable(100);
+        sleepApp(20);
     }
     //motors OFF if ROS shutdown
 	drive(0, 0, 0, 0, 0);

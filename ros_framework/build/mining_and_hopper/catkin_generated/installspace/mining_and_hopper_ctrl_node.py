@@ -117,8 +117,8 @@ if __name__ == '__main__':
         
         #if command to run hopper is received activate system
         if run_hopper.run_hopper_flag.data == True:
-            #set timer to run hopper for 30s
-            hopper_timer = time.time() + 30
+            #set timer to run hopper for (x)s
+            hopper_timer = time.time() + 2
             while time.time() < hopper_timer:
                 #publish hopper run FWD signal (1)
                 hopper_motor_pub(1)
