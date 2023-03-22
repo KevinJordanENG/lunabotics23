@@ -20,21 +20,21 @@ if __name__ == '__main__':
     print("-u=FWD+LEFT---o=FWD+RIGHT---n=REV+LEFT---,=REV+RIGHT-")
     print("-s=SLOW---f=FAST---d=DPLY---x=MINE---h=HOP---t=STUCK-")
     print("-----------------------------------------------------")
-    print("-AFTER-ANY-d/x/h/t-COMMANDS-MUST-PRESS-NON-CODED-KEY-")
+    print("-AFTER-ANY-COMMAND-SENT-MUST-PRESS-ANY-NON-CODED-KEY-")
     print("-----TO-CLEAR-SENT-COMMAND---c=CLEAR-RECOMMENDED-----")
     print("-----------------------------------------------------")
 
     #setup publishing topics
-    pub_x = rospy.Publisher('x_cmd_velocity', Int16, queue_size = 10)
-    pub_theta = rospy.Publisher('theta_cmd_velocity', Int16, queue_size = 10)
-    pub_mining = rospy.Publisher('run_mining_state', Bool, queue_size = 10)
-    pub_hopper = rospy.Publisher('run_hopper_state', Bool, queue_size = 10)
-    pub_servo = rospy.Publisher('run_servo_command', Bool, queue_size = 10)
+    pub_x = rospy.Publisher('x_cmd_code', Int16, queue_size = 20)
+    pub_theta = rospy.Publisher('theta_cmd_code', Int16, queue_size = 20)
+    pub_mining = rospy.Publisher('run_mining_state', Bool, queue_size = 20)
+    pub_hopper = rospy.Publisher('run_hopper_state', Bool, queue_size = 20)
+    pub_servo = rospy.Publisher('run_servo_command', Bool, queue_size = 20)
     #simulated stuck for testing
-    pub_stuck = rospy.Publisher('stuck_fault_state', Bool, queue_size = 10)
+    pub_stuck = rospy.Publisher('stuck_fault_state', Bool, queue_size = 20)
     
     #set publish rate (Hz)
-    rate = rospy.Rate(50)
+    rate = rospy.Rate(100)
 
     #setup variables & initial values for topics to be published
     cmd_velocity = 1

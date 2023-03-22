@@ -25,8 +25,8 @@ if __name__ == '__main__':
     print("-----------------------------------------------------")
 
     #setup publishing topics
-    pub_x = rospy.Publisher('x_cmd_velocity', Int16, queue_size = 10)
-    pub_theta = rospy.Publisher('theta_cmd_velocity', Int16, queue_size = 10)
+    pub_x = rospy.Publisher('x_cmd_code', Int16, queue_size = 10)
+    pub_theta = rospy.Publisher('theta_cmd_code', Int16, queue_size = 10)
     pub_mining = rospy.Publisher('run_mining_state', Bool, queue_size = 10)
     pub_hopper = rospy.Publisher('run_hopper_state', Bool, queue_size = 10)
     pub_servo = rospy.Publisher('run_servo_command', Bool, queue_size = 10)

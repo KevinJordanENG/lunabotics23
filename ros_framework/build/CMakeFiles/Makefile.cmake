@@ -30,6 +30,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/und-robotics/lunabotics23/ros_framework/src/autonomy/package.xml"
   "/home/und-robotics/lunabotics23/ros_framework/src/drivetrain/CMakeLists.txt"
   "/home/und-robotics/lunabotics23/ros_framework/src/drivetrain/package.xml"
+  "/home/und-robotics/lunabotics23/ros_framework/src/drivetrain/scripts/drivetrain_ctrl_node.py"
   "/home/und-robotics/lunabotics23/ros_framework/src/launch/CMakeLists.txt"
   "/home/und-robotics/lunabotics23/ros_framework/src/launch/package.xml"
   "/home/und-robotics/lunabotics23/ros_framework/src/mining_and_hopper/CMakeLists.txt"
