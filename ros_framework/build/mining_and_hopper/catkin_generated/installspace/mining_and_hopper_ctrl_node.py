@@ -69,7 +69,7 @@ if __name__ == '__main__':
     #initialize node
     rospy.init_node('mining_and_hopper_ctrl_node')
     #publish rate (Hz)
-    rate = rospy.Rate(50)
+    rate = rospy.Rate(100)
     #null val for motor signals on startup / while waiting for execution
     non_cycle_null_val = 0
 
@@ -118,7 +118,7 @@ if __name__ == '__main__':
         #if command to run hopper is received activate system
         if run_hopper.run_hopper_flag.data == True:
             #set timer to run hopper for (x)s
-            hopper_timer = time.time() + 2
+            hopper_timer = time.time() + 30
             while time.time() < hopper_timer:
                 #publish hopper run FWD signal (1)
                 hopper_motor_pub(1)

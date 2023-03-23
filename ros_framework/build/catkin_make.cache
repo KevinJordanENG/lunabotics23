@@ -1,2 +1,2 @@
-autonomy:drivetrain:launch:mining_and_hopper:sys_release:teleop
+autonomy:ctre_motors:drivetrain:launch:mining_and_hopper:sys_release:teleop
 -DCATKIN_DEVEL_PREFIX=/home/und-robotics/lunabotics23/ros_framework/devel -DCMAKE_INSTALL_PREFIX=/home/und-robotics/lunabotics23/ros_framework/install -G Unix Makefiles

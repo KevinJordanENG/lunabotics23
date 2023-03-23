@@ -297,6 +297,12 @@ catkin_DIR:PATH=/opt/ros/melodic/share/catkin/cmake
 cpp_common_DIR:PATH=/opt/ros/melodic/share/cpp_common/cmake
 
 //Value Computed by CMake
+ctre_motors_BINARY_DIR:STATIC=/home/und-robotics/lunabotics23/ros_framework/build/ctre_motors
+
+//Value Computed by CMake
+ctre_motors_SOURCE_DIR:STATIC=/home/und-robotics/lunabotics23/ros_framework/src/ctre_motors
+
+//Value Computed by CMake
 drivetrain_BINARY_DIR:STATIC=/home/und-robotics/lunabotics23/ros_framework/build/drivetrain
 
 //Value Computed by CMake
@@ -407,6 +413,12 @@ teleop_BINARY_DIR:STATIC=/home/und-robotics/lunabotics23/ros_framework/build/tel
 
 //Value Computed by CMake
 teleop_SOURCE_DIR:STATIC=/home/und-robotics/lunabotics23/ros_framework/src/teleop
+
+//Value Computed by CMake
+vex_talonSRX_motorcontrol_BINARY_DIR:STATIC=/home/und-robotics/lunabotics23/ros_framework/build/vex_talonSRX_motorcontrol
+
+//Value Computed by CMake
+vex_talonSRX_motorcontrol_SOURCE_DIR:STATIC=/home/und-robotics/lunabotics23/ros_framework/src/vex_talonSRX_motorcontrol
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/melodic/share/xmlrpcpp/cmake
@@ -521,7 +533,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

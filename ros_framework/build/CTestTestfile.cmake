@@ -6,6 +6,7 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("autonomy")
+subdirs("ctre_motors")
 subdirs("drivetrain")
 subdirs("launch")
 subdirs("mining_and_hopper")

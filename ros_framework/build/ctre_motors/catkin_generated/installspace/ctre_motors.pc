@@ -1,0 +1,8 @@
+prefix=/home/und-robotics/lunabotics23/ros_framework/install
+
+Name: ctre_motors
+Description: Description of ctre_motors
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lvex_talon_srx_motor_controllers_subscriber
+Requires: roscpp rospy std_msgs

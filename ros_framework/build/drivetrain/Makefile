@@ -68,17 +68,26 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
 
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target test
 test:
@@ -91,15 +100,28 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
-.PHONY : list_install_components/fast
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # Special rule for the target install
 install: preinstall
@@ -112,28 +134,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -167,48 +167,6 @@ depend:
 	cd /home/und-robotics/lunabotics23/ros_framework/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-drivetrain/CMakeFiles/FRight_motor_subscriber.dir/rule:
-	cd /home/und-robotics/lunabotics23/ros_framework/build && $(MAKE) -f CMakeFiles/Makefile2 drivetrain/CMakeFiles/FRight_motor_subscriber.dir/rule
-.PHONY : drivetrain/CMakeFiles/FRight_motor_subscriber.dir/rule
-
-# Convenience name for target.
-FRight_motor_subscriber: drivetrain/CMakeFiles/FRight_motor_subscriber.dir/rule
-
-.PHONY : FRight_motor_subscriber
-
-# fast build rule for target.
-FRight_motor_subscriber/fast:
-	cd /home/und-robotics/lunabotics23/ros_framework/build && $(MAKE) -f drivetrain/CMakeFiles/FRight_motor_subscriber.dir/build.make drivetrain/CMakeFiles/FRight_motor_subscriber.dir/build
-.PHONY : FRight_motor_subscriber/fast
-
-src/FRight_motor_subscriber.o: src/FRight_motor_subscriber.cpp.o
-
-.PHONY : src/FRight_motor_subscriber.o
-
-# target to build an object file
-src/FRight_motor_subscriber.cpp.o:
-	cd /home/und-robotics/lunabotics23/ros_framework/build && $(MAKE) -f drivetrain/CMakeFiles/FRight_motor_subscriber.dir/build.make drivetrain/CMakeFiles/FRight_motor_subscriber.dir/src/FRight_motor_subscriber.cpp.o
-.PHONY : src/FRight_motor_subscriber.cpp.o
-
-src/FRight_motor_subscriber.i: src/FRight_motor_subscriber.cpp.i
-
-.PHONY : src/FRight_motor_subscriber.i
-
-# target to preprocess a source file
-src/FRight_motor_subscriber.cpp.i:
-	cd /home/und-robotics/lunabotics23/ros_framework/build && $(MAKE) -f drivetrain/CMakeFiles/FRight_motor_subscriber.dir/build.make drivetrain/CMakeFiles/FRight_motor_subscriber.dir/src/FRight_motor_subscriber.cpp.i
-.PHONY : src/FRight_motor_subscriber.cpp.i
-
-src/FRight_motor_subscriber.s: src/FRight_motor_subscriber.cpp.s
-
-.PHONY : src/FRight_motor_subscriber.s
-
-# target to generate assembly for a file
-src/FRight_motor_subscriber.cpp.s:
-	cd /home/und-robotics/lunabotics23/ros_framework/build && $(MAKE) -f drivetrain/CMakeFiles/FRight_motor_subscriber.dir/build.make drivetrain/CMakeFiles/FRight_motor_subscriber.dir/src/FRight_motor_subscriber.cpp.s
-.PHONY : src/FRight_motor_subscriber.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -216,16 +174,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install/local"
-	@echo "... test"
-	@echo "... list_install_components"
-	@echo "... FRight_motor_subscriber"
-	@echo "... install"
 	@echo "... edit_cache"
+	@echo "... list_install_components"
+	@echo "... test"
+	@echo "... install/local"
 	@echo "... rebuild_cache"
-	@echo "... src/FRight_motor_subscriber.o"
-	@echo "... src/FRight_motor_subscriber.i"
-	@echo "... src/FRight_motor_subscriber.s"
+	@echo "... install"
 .PHONY : help
 
 

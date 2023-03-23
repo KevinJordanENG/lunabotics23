@@ -1,0 +1,8 @@
+prefix=/home/und-robotics/lunabotics23/ros_framework/devel
+
+Name: vex_talonSRX_motorcontrol
+Description: Description of vex_talonSRX_motorcontrol
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
