@@ -26,30 +26,38 @@ TalonSRX talFRight(1, interface); //specify interface
 TalonSRX talFLeft(2); //front left
 TalonSRX talBLeft(3); //back left
 TalonSRX talBRight(4); //back right
-TalonSRX talCollect(6); //collector
 TalonSRX talExtend(5); //extensor
+TalonSRX talCollect(6); //collector
 TalonSRX talHopper(7); //hopper
 
 class command_data {
 public:
     int x_motor_input_cmd = 0;
     int theta_motor_input_cmd = 0;
+    int extend_motor_input_cmd = 0;
+    int collect_motor_input_cmd = 0;
     int hopper_motor_input_cmd = 0;
-
-
-    void runFRightMotorXCallback(const std_msgs::Int16 &msg1);
-    void runFRightMotorThetaCallback(const std_msgs::Int16 &msg2);
-
-
+    void runXCallback(const std_msgs::Int16 &msg1);
+    void runThetaCallback(const std_msgs::Int16 &msg2);
+    void runExtendMotorCallback(const std_msgs::Int16 &msg5);
+    void runCollectMotorCallback(const std_msgs::Int16 &msg6);
     void runHopperMotorCallback(const std_msgs::Int16 &msg7);
 };
 
-void command_data::runFRightMotorXCallback(const std_msgs::Int16 &msg1) {
+void command_data::runXCallback(const std_msgs::Int16 &msg1) {
     x_motor_input_cmd = msg1.data;
 }
 
-void command_data::runFRightMotorThetaCallback(const std_msgs::Int16 &msg2) {
+void command_data::runThetaCallback(const std_msgs::Int16 &msg2) {
     theta_motor_input_cmd = msg2.data;
+}
+
+void command_data::runExtendMotorCallback(const std_msgs::Int16 &msg5) {
+    extend_motor_input_cmd = msg5.data;
+}
+
+void command_data::runCollectMotorCallback(const std_msgs::Int16 &msg6) {
+    collect_motor_input_cmd = msg6.data;
 }
 
 void command_data::runHopperMotorCallback(const std_msgs::Int16 &msg7) {
@@ -63,7 +71,7 @@ void initDrive()
 	talBRight.SetInverted(true);
 }
 
-void drive(double x, double theta, double collect, double extend, double hopper)
+void drive(double x, double theta, double extend, double collect, double hopper)
 {
 	
     //FIXME-FIXME-FIXME-----NEED TO ADD TURNING MATH HERE------FIXME-FIXME-FIXME
@@ -74,8 +82,8 @@ void drive(double x, double theta, double collect, double extend, double hopper)
     talFLeft.Set(ControlMode::PercentOutput, x);
 	talBLeft.Set(ControlMode::PercentOutput, x);
 	talBRight.Set(ControlMode::PercentOutput, x);
+    talExtend.Set(ControlMode::PercentOutput, extend);
 	talCollect.Set(ControlMode::PercentOutput, collect);
-	talExtend.Set(ControlMode::PercentOutput, extend);
 	talHopper.Set(ControlMode::PercentOutput, hopper);
 }
 
@@ -90,8 +98,8 @@ int main(int argc, char **argv){
     command_data input_sigs;
     double x = 0.0;
     double theta = 0.0;
-
-
+    double extend = 0.0;
+    double collect = 0.0;
     double hopper = 0.0;
 
     /* setup drive */
@@ -102,9 +110,13 @@ int main(int argc, char **argv){
     ros::Rate loop_rate(100);
 
     ros::Subscriber x_sub = 
-        nh.subscribe("x_cmd_velocity", 1000, &command_data::runFRightMotorXCallback, &input_sigs);
+        nh.subscribe("x_cmd_velocity", 1000, &command_data::runXCallback, &input_sigs);
     ros::Subscriber theta_sub = 
-        nh.subscribe("theta_cmd_velocity", 1000, &command_data::runFRightMotorThetaCallback, &input_sigs);
+        nh.subscribe("theta_cmd_velocity", 1000, &command_data::runThetaCallback, &input_sigs);
+    ros::Subscriber extend_sub = 
+        nh.subscribe("extensor_cmd_signal", 1000, &command_data::runExtendMotorCallback, &input_sigs);
+    ros::Subscriber collect_sub = 
+        nh.subscribe("collector_cmd_signal", 1000, &command_data::runCollectMotorCallback, &input_sigs);
     ros::Subscriber hopper_sub = 
         nh.subscribe("hopper_cmd_signal", 1000, &command_data::runHopperMotorCallback, &input_sigs);
 
@@ -159,6 +171,34 @@ int main(int argc, char **argv){
             theta = -0.75;
         }
 
+        //extensor motor states
+        if (input_sigs.extend_motor_input_cmd == 0) {
+            std::cout << "EXT-OFF\n";
+            extend = 0;
+        }
+        else if (input_sigs.extend_motor_input_cmd == 1) {
+            std::cout << "EXT-FWD\n";
+            extend = 0.75;
+        }
+        else if (input_sigs.extend_motor_input_cmd == -1) {
+            std::cout << "EXT-REV\n";
+            extend = -0.75;
+        }
+
+        //collector motor states
+        if (input_sigs.collect_motor_input_cmd == 0) {
+            std::cout << "COL-OFF\n";
+            collect = 0;
+        }
+        else if (input_sigs.collect_motor_input_cmd == 1) {
+            std::cout << "COL-FWD\n";
+            collect = 0.75;
+        }
+        else if (input_sigs.collect_motor_input_cmd == -1) {
+            std::cout << "COL-REV\n";
+            collect = -0.75;
+        }
+
         //hopper motor states
         if (input_sigs.hopper_motor_input_cmd == 0) {
             std::cout << "HOP-OFF\n";
@@ -173,7 +213,7 @@ int main(int argc, char **argv){
             hopper = -0.75;
         }
         
-        drive(x, theta, 0, 0, hopper);
+        drive(x, theta, extend, collect, hopper);
         ctre::phoenix::unmanaged::Unmanaged::FeedEnable(100);
         sleepApp(20);
     }
