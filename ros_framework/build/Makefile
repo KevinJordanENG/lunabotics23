@@ -492,19 +492,6 @@ vex_talon_srx_motor_controllers_subscriber/fast:
 	$(MAKE) -f ctre_motors/CMakeFiles/vex_talon_srx_motor_controllers_subscriber.dir/build.make ctre_motors/CMakeFiles/vex_talon_srx_motor_controllers_subscriber.dir/build
 .PHONY : vex_talon_srx_motor_controllers_subscriber/fast
 
-#=============================================================================
-# Target rules for targets named hopper_motor_subscriber
-
-# Build rule for target.
-hopper_motor_subscriber: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 hopper_motor_subscriber
-.PHONY : hopper_motor_subscriber
-
-# fast build rule for target.
-hopper_motor_subscriber/fast:
-	$(MAKE) -f mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/build.make mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/build
-.PHONY : hopper_motor_subscriber/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -543,7 +530,6 @@ help:
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... vex_talon_srx_motor_controllers_subscriber"
-	@echo "... hopper_motor_subscriber"
 .PHONY : help
 
 

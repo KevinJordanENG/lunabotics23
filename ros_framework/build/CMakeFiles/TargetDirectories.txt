@@ -79,12 +79,11 @@
 /home/und-robotics/lunabotics23/ros_framework/build/launch/CMakeFiles/install/local.dir
 /home/und-robotics/lunabotics23/ros_framework/build/launch/CMakeFiles/rebuild_cache.dir
 /home/und-robotics/lunabotics23/ros_framework/build/launch/CMakeFiles/install.dir
-/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/install/local.dir
-/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/test.dir
 /home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/install/strip.dir
-/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir
-/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/list_install_components.dir
 /home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/edit_cache.dir
+/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/list_install_components.dir
+/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/test.dir
+/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/install/local.dir
 /home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/rebuild_cache.dir
 /home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/CMakeFiles/install.dir
 /home/und-robotics/lunabotics23/ros_framework/build/sys_release/CMakeFiles/install/strip.dir

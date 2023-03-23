@@ -113,6 +113,7 @@ if __name__ == '__main__':
                 mining_motors_pub(-1, 0)
                 #print("retracting mining")
                 rate.sleep()
+            mining_motors_pub(0, 0)
 
         
         #if command to run hopper is received activate system
@@ -124,6 +125,7 @@ if __name__ == '__main__':
                 hopper_motor_pub(1)
                 #print("Running hopper")
                 rate.sleep()
+            hopper_motor_pub(0)
 
         #when not actively cycling the mining or hopper systems publish OFF commands to motors
         mining_motors_pub(non_cycle_null_val, non_cycle_null_val)

@@ -955,7 +955,7 @@ ctre_motors/CMakeFiles/vex_talon_srx_motor_controllers_subscriber.dir/all: auton
 ctre_motors/CMakeFiles/vex_talon_srx_motor_controllers_subscriber.dir/all: autonomy/CMakeFiles/std_msgs_generate_messages_py.dir/all
 	$(MAKE) -f ctre_motors/CMakeFiles/vex_talon_srx_motor_controllers_subscriber.dir/build.make ctre_motors/CMakeFiles/vex_talon_srx_motor_controllers_subscriber.dir/depend
 	$(MAKE) -f ctre_motors/CMakeFiles/vex_talon_srx_motor_controllers_subscriber.dir/build.make ctre_motors/CMakeFiles/vex_talon_srx_motor_controllers_subscriber.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles --progress-num=14,15 "Built target vex_talon_srx_motor_controllers_subscriber"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles --progress-num=12,13 "Built target vex_talon_srx_motor_controllers_subscriber"
 .PHONY : ctre_motors/CMakeFiles/vex_talon_srx_motor_controllers_subscriber.dir/all
 
 # Include target in all.
@@ -1025,12 +1025,12 @@ launch/preinstall:
 # Directory level rules for directory mining_and_hopper
 
 # Convenience name for "all" pass in the directory.
-mining_and_hopper/all: mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all
+mining_and_hopper/all:
 
 .PHONY : mining_and_hopper/all
 
 # Convenience name for "clean" pass in the directory.
-mining_and_hopper/clean: mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/clean
+mining_and_hopper/clean:
 
 .PHONY : mining_and_hopper/clean
 
@@ -1038,57 +1038,6 @@ mining_and_hopper/clean: mining_and_hopper/CMakeFiles/hopper_motor_subscriber.di
 mining_and_hopper/preinstall:
 
 .PHONY : mining_and_hopper/preinstall
-
-#=============================================================================
-# Target rules for target mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir
-
-# All Build rule for target.
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/roscpp_generate_messages_py.dir/all
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/roscpp_generate_messages_eus.dir/all
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/roscpp_generate_messages_lisp.dir/all
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/roscpp_generate_messages_cpp.dir/all
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/std_msgs_generate_messages_eus.dir/all
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all: autonomy/CMakeFiles/std_msgs_generate_messages_py.dir/all
-	$(MAKE) -f mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/build.make mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/depend
-	$(MAKE) -f mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/build.make mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles --progress-num=12,13 "Built target hopper_motor_subscriber"
-.PHONY : mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all
-
-# Include target in all.
-all: mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/und-robotics/lunabotics23/ros_framework/build/CMakeFiles 0
-.PHONY : mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/rule
-
-# Convenience name for target.
-hopper_motor_subscriber: mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/rule
-
-.PHONY : hopper_motor_subscriber
-
-# clean rule for target.
-mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/clean:
-	$(MAKE) -f mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/build.make mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/clean
-.PHONY : mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/clean
-
-# clean rule for target.
-clean: mining_and_hopper/CMakeFiles/hopper_motor_subscriber.dir/clean
-
-.PHONY : clean
 
 #=============================================================================
 # Directory level rules for directory sys_release
