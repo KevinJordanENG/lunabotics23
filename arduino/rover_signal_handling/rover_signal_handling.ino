@@ -34,12 +34,30 @@ bool stuck_fault = false;
 const int shunt_current_reading_pin = A1;
 const int stuck_fault_out_pin_to_jetson = 24;
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~limit switch var defs~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+int full_extend_reading;
+int full_retract_reading;
+int timer2 = 0;
+int timer3 = 0;
+long high_ext_timer = 0;
+long high_rtct_timer = 0;
+bool high_ext_flag = false;
+bool high_rtct_flag = false;
+bool full_extend = false;
+bool full_retract = false;
+
+const int full_extend_reading_pin = 46;
+const int full_retract_reading_pin = 32;
+const int full_extend_out_pin_to_jetson = 42;
+const int full_retract_out_pin_to_jetson = 38;
+
+
 //testing only
-const int simulated_jetson_GPIO_read = 48; 
+//const int simulated_jetson_GPIO_read = 48; 
 
 void setup() {
   
-    Serial.begin(9600); //uncomment for testing if needed
+    //Serial.begin(9600); //uncomment for testing if needed
     //~~~~~~~~~~~~~~~~~~rover deployement servo setup~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     //maually set servo position to INITIAL POSITION (see warning above) & attach
     deploy_servo.write(servo_position);
@@ -116,6 +134,37 @@ void loop() {
 
     //send stuck-fault signal to Jetson, default is logic LOW or NO STUCK-FAULT
     digitalWrite(stuck_fault_out_pin_to_jetson, stuck_fault);
+
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~limit switches signal code~~~~~~~~~~~~~~~~~~~~~~//
+    timer2 = (int)(millis()/1000);
+
+    full_extend_reading = digitalRead(full_extend_reading_pin);
+    if (full_extend_reading == false) {
+        high_ext_flag == true;
+        if (high_ext_timer == 0) high_ext_timer = timer2;
+        else high_ext_timer = high_ext_timer;
+    }
+    if (high_ext_flag == true) {
+        if (timer2 - high_ext_timer >= 1) {
+            full_extend = true;
+        }
+    }
+
+
+    timer3 = (int)(millis()/1000);
+
+    full_retract_reading = digitalRead(full_retract_reading_pin);
+        if (full_retract_reading == false) {
+        high_rtct_flag == true;
+        if (high_rtct_timer == 0) high_rtct_timer = timer3;
+        else high_rtct_timer = high_rtct_timer;
+    }
+    if (high_rtct_flag == true) {
+        if (timer3 - high_rtct_timer >= 1) {
+            full_retract = true;
+        }
+    }
 
 }
 
