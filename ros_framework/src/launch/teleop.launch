@@ -13,11 +13,31 @@
         
     </node>
 
+    <node pkg="sys_release" type="run_servo_intermediary.py" name="run_servo_intermediary">
+        
+    </node>
+
     <node pkg="mining_and_hopper" type="read_stuck_fault_GPIO_publisher.py" name="read_stuck_fault_GPIO_publisher">
         
     </node>
 
+    <node pkg="mining_and_hopper" type="full_extend_limit_switch_GPIO_publisher.py" name="full_extend_limit_switch_GPIO_publisher">
+        
+    </node>
+
+    <node pkg="mining_and_hopper" type="full_retract_limit_switch_GPIO_publisher.py" name="full_retract_limit_switch_GPIO_publisher">
+        
+    </node>
+
     <node pkg="mining_and_hopper" type="mining_and_hopper_ctrl_node.py" name="mining_and_hopper_ctrl_node">
+        
+    </node>
+
+    <node pkg="drivetrain" type="drivetrain_ctrl_node.py" name="drivetrain_ctrl_node">
+        
+    </node>
+
+    <node pkg="ctre_motors" type="vex_talon_srx_motor_controllers_subscriber" name="vex_talon_srx_motor_controllers_subscriber">
         
     </node>
 

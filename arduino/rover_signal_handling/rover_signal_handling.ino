@@ -18,7 +18,7 @@ bool run_servo;
 //MANUALLY SET FULLY TO ONE SIDE & IS SAME POSITION PRE SYSTEM DEPLOYEMENT.         //
 //ALWAYS CHECK THAT SERVO POSITION IS MANUALLY RESET BEFORE RESETTING ROVER SYSTEM  //
 //OTHERWISE SERVO WILL FORCEFULLY RESET TO "0" UPON SYSTEM POWER UP / RESET.        //
-int servo_position = 0;
+int servo_position = 180;
 
 const int jetson_run_servo_in_pin = A0;
 const int servo_out_pin = 9;
@@ -57,11 +57,12 @@ const int full_retract_out_pin_to_jetson = 38;
 
 void setup() {
   
-    //Serial.begin(9600); //uncomment for testing if needed
+    Serial.begin(9600); //uncomment for testing if needed
     //~~~~~~~~~~~~~~~~~~rover deployement servo setup~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     //maually set servo position to INITIAL POSITION (see warning above) & attach
     deploy_servo.write(servo_position);
     deploy_servo.attach(servo_out_pin);
+    Serial.println(servo_position);
     
 }
 
@@ -81,8 +82,9 @@ void loop() {
         //have we already deployed so no need to run again?
         if (already_ran_flag == false) {
             //gradually actuate to oposite of servo position range
-            for (servo_position = 0; servo_position <= 180; servo_position += 1) {
+            for (servo_position = 180; servo_position <= 0; servo_position += 1) {
                 deploy_servo.write(servo_position);
+                Serial.println(jetson_run_servo_in);
                 delay(5); //DELAY CAN BE MODIFIED TO SET DESIRED ROTATION SPEED (lower is faster)
             }
             //once deployement ran set flag so does not run again

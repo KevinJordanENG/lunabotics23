@@ -8,23 +8,23 @@ from std_msgs.msg import Bool, Int16
 #ROS node standard form
 if __name__ == '__main__':
 
-    rospy.init_node('read_stuck_fault_GPIO_publisher')
+    rospy.init_node('test_node')
 
-    pub_FRmotor = rospy.Publisher('x_motor_input_cmd', Int16, queue_size = 10)
-    pub_mining = rospy.Publisher('run_mining_state', Bool, queue_size = 10)
-    pub_hopper = rospy.Publisher('run_hopper_state', Bool, queue_size = 10)
+    pub_retract = rospy.Publisher('full_retract_state', Bool, queue_size = 10)
+    #pub_mining = rospy.Publisher('run_mining_state', Bool, queue_size = 10)
+    #pub_hopper = rospy.Publisher('run_hopper_state', Bool, queue_size = 10)
 
     rate = rospy.Rate(50)
 
     while not rospy.is_shutdown():
         
-        FRight = 1
+        retract = 1
         
         mining = False
 
         hopper = False
 
-        pub_FRmotor.publish(FRight)
+        pub_retract.publish(retract)
         #pub_mining.publish(mining)
         #pub_hopper.publish(hopper)
 

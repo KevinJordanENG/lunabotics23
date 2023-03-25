@@ -75,13 +75,13 @@ void drive(double x, double theta, double extend, double collect, double hopper)
 {
 	
     //FIXME-FIXME-FIXME-----NEED TO ADD TURNING MATH HERE------FIXME-FIXME-FIXME
-    //double x = - fwd - turn;
-	//double left = - fwd + turn; /* positive turn means turn robot LEFT */
+    double right2Motors = - x - theta;
+	double left2Motors = - x + theta; /* positive turn means turn robot LEFT */
 
-	talFRight.Set(ControlMode::PercentOutput, x);
-    talFLeft.Set(ControlMode::PercentOutput, x);
-	talBLeft.Set(ControlMode::PercentOutput, x);
-	talBRight.Set(ControlMode::PercentOutput, x);
+	talFRight.Set(ControlMode::PercentOutput, right2Motors);
+    talFLeft.Set(ControlMode::PercentOutput, left2Motors);
+	talBLeft.Set(ControlMode::PercentOutput, left2Motors);
+	talBRight.Set(ControlMode::PercentOutput, right2Motors);
     talExtend.Set(ControlMode::PercentOutput, extend);
 	talCollect.Set(ControlMode::PercentOutput, collect);
 	talHopper.Set(ControlMode::PercentOutput, hopper);
@@ -134,27 +134,27 @@ int main(int argc, char **argv){
         }
         else if (input_sigs.x_motor_input_cmd == 1) {
             std::cout << "FWD-SLOW\n";
-            x = 0.05;
+            x = 0.10;
         }
         else if (input_sigs.x_motor_input_cmd == 2) {
             std::cout << "FWD-MID\n";
-            x = 0.15;
+            x = 0.20;
         }
         else if (input_sigs.x_motor_input_cmd == 3) {
             std::cout << "FWD-FAST\n";
-            x = 0.30;
+            x = 0.25;
         }
         else if (input_sigs.x_motor_input_cmd == -1) {
             std::cout << "REV-SLOW\n";
-            x = -0.05;
+            x = -0.10;
         }
         else if (input_sigs.x_motor_input_cmd == -2) {
             std::cout << "REV-MID\n";
-            x = -0.15;
+            x = -0.20;
         }
         else if (input_sigs.x_motor_input_cmd == -3) {
             std::cout << "REV-FAST\n";
-            x = -0.30;
+            x = -0.25;
         }
 
         //theta rotation command states
@@ -164,11 +164,11 @@ int main(int argc, char **argv){
         }
         else if (input_sigs.theta_motor_input_cmd == 1) {
             std::cout << "LEFT\n";
-            theta = 0.75;
+            theta = 0.10;
         }
         else if (input_sigs.theta_motor_input_cmd == -1) {
             std::cout << "RIGHT\n";
-            theta = -0.75;
+            theta = -0.10;
         }
 
         //extensor motor states
@@ -178,11 +178,11 @@ int main(int argc, char **argv){
         }
         else if (input_sigs.extend_motor_input_cmd == 1) {
             std::cout << "EXT-FWD\n";
-            extend = 0.75;
+            extend = 0.6;
         }
         else if (input_sigs.extend_motor_input_cmd == -1) {
             std::cout << "EXT-REV\n";
-            extend = -0.75;
+            extend = -0.9;
         }
 
         //collector motor states
@@ -192,11 +192,11 @@ int main(int argc, char **argv){
         }
         else if (input_sigs.collect_motor_input_cmd == 1) {
             std::cout << "COL-FWD\n";
-            collect = 0.75;
+            collect = 0.5;
         }
         else if (input_sigs.collect_motor_input_cmd == -1) {
             std::cout << "COL-REV\n";
-            collect = -0.75;
+            collect = -0.5;
         }
 
         //hopper motor states
@@ -206,11 +206,11 @@ int main(int argc, char **argv){
         }
         else if (input_sigs.hopper_motor_input_cmd == 1) {
             std::cout << "HOP-FWD\n";
-            hopper = 0.75;
+            hopper = 0.9;
         }
         else if (input_sigs.hopper_motor_input_cmd == -1) {
             std::cout << "HOP-REV\n";
-            hopper = -0.75;
+            hopper = -0.9;
         }
         
         drive(x, theta, extend, collect, hopper);

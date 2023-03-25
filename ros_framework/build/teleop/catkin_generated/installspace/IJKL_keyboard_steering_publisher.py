@@ -18,7 +18,8 @@ if __name__ == '__main__':
     print("-----------------------------------------------------")
     print("---i=FWD---m=REV---j=LEFT---l=RIGHT---k=FULL-STOP----")
     print("-u=FWD+LEFT---o=FWD+RIGHT---n=REV+LEFT---,=REV+RIGHT-")
-    print("-s=SLOW---f=FAST---d=DPLY---x=MINE---h=HOP---t=STUCK-")
+    print("-------------s=SLOW---f=FAST---h=HOP-ON--------------")
+    print("-------e=EXT---r=RTCT---x=COLL-FWD---z=COLL-REV------")
     print("-----------------------------------------------------")
     print("-AFTER-ANY-COMMAND-SENT-MUST-PRESS-ANY-NON-CODED-KEY-")
     print("-----TO-CLEAR-SENT-COMMAND---c=CLEAR-RECOMMENDED-----")
@@ -27,11 +28,12 @@ if __name__ == '__main__':
     #setup publishing topics
     pub_x = rospy.Publisher('x_cmd_code', Int16, queue_size = 20)
     pub_theta = rospy.Publisher('theta_cmd_code', Int16, queue_size = 20)
-    pub_mining = rospy.Publisher('run_mining_state', Bool, queue_size = 20)
+    pub_extensor = rospy.Publisher('run_extensor_state', Int16, queue_size = 20)
+    pub_collector = rospy.Publisher('run_collector_state', Int16, queue_size = 20)
     pub_hopper = rospy.Publisher('run_hopper_state', Bool, queue_size = 20)
-    pub_servo = rospy.Publisher('run_servo_command', Bool, queue_size = 20)
+    pub_servo = rospy.Publisher('run_servo_key', Int16, queue_size = 20)
     #simulated stuck for testing
-    pub_stuck = rospy.Publisher('stuck_fault_state', Bool, queue_size = 20)
+    #pub_stuck = rospy.Publisher('stuck_fault_state', Bool, queue_size = 20)
     
     #set publish rate (Hz)
     rate = rospy.Rate(100)
@@ -40,11 +42,12 @@ if __name__ == '__main__':
     cmd_velocity = 1
     x = 0
     theta = 0
-    mining = False
+    extend = 0
+    collect = 0
     hopper = False
-    servo = False
+    servo = 0
     #simulated stuck
-    stuck = False
+    #stuck = False
 
     #keep node running unless CTRL C pressed
     while not rospy.is_shutdown():
@@ -117,17 +120,29 @@ if __name__ == '__main__':
         elif key == 'h':
             hopper = True
 
-        #MINING RUN command
+        #EXTEND command
+        elif key == 'e':
+            extend = 1
+
+        #RETRACT command
+        elif key == 'r':
+            extend = -1
+
+        #BUCKETS FWD command
         elif key == 'x':
-            mining = True
+            collect = 1
+
+        #BUCKETS REV command
+        elif key == 'z':
+            collect = -1
         
         #DEPLOY SERVO command
         elif key == 'd':
-            servo = True
+            servo = 1
 
         #STUCK simulation command (for testing)
-        elif key == 't':
-            stuck = True
+        #elif key == 't':
+            #stuck = True
 
         #QUIT command - only clean way to shut down!
         elif key == 'q':
@@ -138,19 +153,21 @@ if __name__ == '__main__':
         else:
             x = 0
             theta = 0
-            mining = False
+            extend = 0
+            collect = 0
             hopper = False
-            servo = False
-            stuck = False
+            servo = 0
+            #stuck = False
 
         #publish all topics        
         pub_x.publish(x)
         pub_theta.publish(theta)
-        pub_mining.publish(mining)
+        pub_extensor.publish(extend)
+        pub_collector.publish(collect)
         pub_hopper.publish(hopper)
         pub_servo.publish(servo)
         #simulated stuck fault sig
-        pub_stuck.publish(stuck)
+        #pub_stuck.publish(stuck)
 
         rate.sleep()
     

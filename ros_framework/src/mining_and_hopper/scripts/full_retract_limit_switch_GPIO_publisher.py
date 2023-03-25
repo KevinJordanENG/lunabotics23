@@ -16,7 +16,7 @@ if __name__ == '__main__':
     pub = rospy.Publisher('full_retract_state', Bool, queue_size = 10)
     #setup pin for GPIO
     GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(FULL_RETRACT_LIMIT_GPIO_PIN, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+    GPIO.setup(FULL_RETRACT_LIMIT_GPIO_PIN, GPIO.IN)
     #set message publishing rate (Hz)
     rate = rospy.Rate(50)
     #keep node running unless CTRL C pressed

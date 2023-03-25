@@ -21,15 +21,26 @@ class stuck_fault_sub:
 
 
 #class object for easier main node flow programming: run_mining message ROS subscriber
-class run_mining_sub:
+class run_extensor_sub:
     #class level variable accessable in main program node
-    run_mining_flag = Bool()
+    run_extensor_flag = Int16()
     #object initialize as subscriber
     def __init__(self):
-        self.run_mining_subscriber = rospy.Subscriber('run_mining_state', Bool, self.run_mining_flag_callback)
+        self.run_extensor_subscriber = rospy.Subscriber('run_extensor_state', Int16, self.run_extensor_flag_callback)
     #callback function assigning msg recieved to class level varibale
-    def run_mining_flag_callback(self, msg):
-        self.run_mining_flag.data = msg.data
+    def run_extensor_flag_callback(self, msg):
+        self.run_extensor_flag.data = msg.data
+
+#class object for easier main node flow programming: run_mining message ROS subscriber
+class run_collector_sub:
+    #class level variable accessable in main program node
+    run_collector_flag = Int16()
+    #object initialize as subscriber
+    def __init__(self):
+        self.run_collector_subscriber = rospy.Subscriber('run_collector_state', Int16, self.run_collector_flag_callback)
+    #callback function assigning msg recieved to class level varibale
+    def run_collector_flag_callback(self, msg):
+        self.run_collector_flag.data = msg.data
 
 
 #class object for easier main node flow programming: run_hopper message ROS subscriber
@@ -44,15 +55,21 @@ class run_hopper_sub:
         self.run_hopper_flag.data = msg.data
 
 #class object for easier main node flow programming: mining_motors command ROS publisher
-class mining_motors_pub:
+class extensor_motor_pub:
     #object initialize as publisher and pass command args from main program node
-    def __init__(self, extensor = 0, collector = 0):
+    def __init__(self, extensor = 0):
         self.extensor = extensor
-        self.collector = collector
         #setup ROS publishing & publish passed command args
         self.pub_extensor = rospy.Publisher('extensor_cmd_signal', Int16, queue_size = 10)
-        self.pub_collector = rospy.Publisher('collector_cmd_signal', Int16, queue_size = 10)
         self.pub_extensor.publish(self.extensor)
+
+#class object for easier main node flow programming: mining_motors command ROS publisher
+class collector_motor_pub:
+    #object initialize as publisher and pass command args from main program node
+    def __init__(self, collector = 0):
+        self.collector = collector
+        #setup ROS publishing & publish passed command args
+        self.pub_collector = rospy.Publisher('collector_cmd_signal', Int16, queue_size = 10)
         self.pub_collector.publish(self.collector)
 
 #class object for easier main node flow programming: hopper_motors command ROS publisher
@@ -77,10 +94,11 @@ if __name__ == '__main__':
     while not rospy.is_shutdown():
         #initialize subscribers
         stuck_fault = stuck_fault_sub()
-        run_mining = run_mining_sub()
+        run_extensor = run_extensor_sub()
+        run_collector = run_collector_sub()
         run_hopper = run_hopper_sub()
         
-        #if command to run mining is received activate system
+        '''#if command to run mining is received activate system
         if run_mining.run_mining_flag.data == True:
             #start deploy timer
             deploy_timer = time.time() + 30
@@ -113,13 +131,62 @@ if __name__ == '__main__':
                 mining_motors_pub(-1, 0)
                 #print("retracting mining")
                 rate.sleep()
-            mining_motors_pub(0, 0)
+            mining_motors_pub(0, 0)'''
 
         
+
+        if run_extensor.run_extensor_flag.data == 0:
+            #set timer to run hopper for (x)s
+            timer1 = time.time() + 0.01
+            while time.time() < timer1:
+                #publish x command to motors node
+                extensor_motor_pub(0)
+                rate.sleep()
+        
+        if run_extensor.run_extensor_flag.data == 1:
+            #set timer to run hopper for (x)s
+            timer2 = time.time() + 0.01
+            while time.time() < timer2:
+                #publish x command to motors node
+                extensor_motor_pub(-1)
+                rate.sleep()
+
+        if run_extensor.run_extensor_flag.data == -1:
+            #set timer to run hopper for (x)s
+            timer3 = time.time() + 0.01
+            while time.time() < timer3:
+                #publish x command to motors node
+                extensor_motor_pub(1)
+                rate.sleep()
+        
+        if run_collector.run_collector_flag.data == 0:
+            #set timer to run hopper for (x)s
+            timer4 = time.time() + 0.01
+            while time.time() < timer4:
+                #publish x command to motors node
+                collector_motor_pub(0)
+                rate.sleep()
+        
+        if run_collector.run_collector_flag.data == 1:
+            #set timer to run hopper for (x)s
+            timer5 = time.time() + 0.01
+            while time.time() < timer5:
+                #publish x command to motors node
+                collector_motor_pub(-1)
+                rate.sleep()
+
+        if run_collector.run_collector_flag.data == -1:
+            #set timer to run hopper for (x)s
+            timer6 = time.time() + 0.01
+            while time.time() < timer6:
+                #publish x command to motors node
+                collector_motor_pub(1)
+                rate.sleep()
+
         #if command to run hopper is received activate system
         if run_hopper.run_hopper_flag.data == True:
             #set timer to run hopper for (x)s
-            hopper_timer = time.time() + 30
+            hopper_timer = time.time() + 0.01
             while time.time() < hopper_timer:
                 #publish hopper run FWD signal (1)
                 hopper_motor_pub(1)
@@ -128,7 +195,8 @@ if __name__ == '__main__':
             hopper_motor_pub(0)
 
         #when not actively cycling the mining or hopper systems publish OFF commands to motors
-        mining_motors_pub(non_cycle_null_val, non_cycle_null_val)
+        #extensor_motor_pub(non_cycle_null_val)
+        #collector_motor_pub(non_cycle_null_val)
         hopper_motor_pub(non_cycle_null_val)
         #print("listening")
 
