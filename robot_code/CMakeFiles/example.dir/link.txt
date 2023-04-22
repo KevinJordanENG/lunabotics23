@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic CMakeFiles/example.dir/example.cpp.o  -o bin/example -Wl,-rpath,/home/und-robotics/lunabotics23/robot_code/lib/jetsontx lib/jetsontx/libCTRE_Phoenix.so lib/jetsontx/libCTRE_PhoenixCCI.so -lSDL2 -pthread 

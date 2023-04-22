@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/und-robotics/lunabotics23/testing/build",
-  "command": "/usr/bin/aarch64-linux-gnu-g++   -I../  -g   -std=gnu++1z -o CMakeFiles/test23.dir/main.cpp.o -c /home/und-robotics/lunabotics23/testing/main.cpp",
-  "file": "/home/und-robotics/lunabotics23/testing/main.cpp"
-}
-]

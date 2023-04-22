@@ -1,5 +1,0 @@
-/home/und-robotics/lunabotics23/testing/build/CMakeFiles/rebuild_cache.dir
-/home/und-robotics/lunabotics23/testing/build/CMakeFiles/edit_cache.dir
-/home/und-robotics/lunabotics23/testing/build/CMakeFiles/test23.dir
-/home/und-robotics/lunabotics23/testing/build/CMakeFiles/package_source.dir
-/home/und-robotics/lunabotics23/testing/build/CMakeFiles/package.dir

@@ -1,3 +1,0 @@
-/home/und-robotics/lunabotics23/robot_code/build/CMakeFiles/rebuild_cache.dir
-/home/und-robotics/lunabotics23/robot_code/build/CMakeFiles/example.dir
-/home/und-robotics/lunabotics23/robot_code/build/CMakeFiles/edit_cache.dir
