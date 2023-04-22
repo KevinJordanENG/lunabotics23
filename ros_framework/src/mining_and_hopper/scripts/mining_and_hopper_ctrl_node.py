@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-#For all VEX Talon Motor control publishers 0=OFF, 1=FWD, -1=REV
+#script acts as intermediary signal processor converting periodic command signals
+#from keyboard controller into continuous messages understood by ROS message system
 
 #import needed libraries
 import rospy
@@ -20,7 +21,7 @@ class stuck_fault_sub:
         self.stuck_fault_flag.data = msg.data
 
 
-#class object for easier main node flow programming: run_mining message ROS subscriber
+#class object for easier main node flow programming: run_extensor message ROS subscriber
 class run_extensor_sub:
     #class level variable accessable in main program node
     run_extensor_flag = Int16()
@@ -31,7 +32,7 @@ class run_extensor_sub:
     def run_extensor_flag_callback(self, msg):
         self.run_extensor_flag.data = msg.data
 
-#class object for easier main node flow programming: run_mining message ROS subscriber
+#class object for easier main node flow programming: run_collector message ROS subscriber
 class run_collector_sub:
     #class level variable accessable in main program node
     run_collector_flag = Int16()
@@ -54,7 +55,7 @@ class run_hopper_sub:
     def run_hopper_flag_callback(self, msg):
         self.run_hopper_flag.data = msg.data
 
-#class object for easier main node flow programming: mining_motors command ROS publisher
+#class object for easier main node flow programming: extensor_motor command ROS publisher
 class extensor_motor_pub:
     #object initialize as publisher and pass command args from main program node
     def __init__(self, extensor = 0):
@@ -63,7 +64,7 @@ class extensor_motor_pub:
         self.pub_extensor = rospy.Publisher('extensor_cmd_signal', Int16, queue_size = 10)
         self.pub_extensor.publish(self.extensor)
 
-#class object for easier main node flow programming: mining_motors command ROS publisher
+#class object for easier main node flow programming: collector_motor command ROS publisher
 class collector_motor_pub:
     #object initialize as publisher and pass command args from main program node
     def __init__(self, collector = 0):
@@ -72,7 +73,7 @@ class collector_motor_pub:
         self.pub_collector = rospy.Publisher('collector_cmd_signal', Int16, queue_size = 10)
         self.pub_collector.publish(self.collector)
 
-#class object for easier main node flow programming: hopper_motors command ROS publisher
+#class object for easier main node flow programming: hopper_motor command ROS publisher
 class hopper_motor_pub:
     #object initialize as publisher and pass command arg from main program node
     def __init__(self, hopper = 0):
@@ -98,6 +99,8 @@ if __name__ == '__main__':
         run_collector = run_collector_sub()
         run_hopper = run_hopper_sub()
         
+        #Removed block comment is a time based stuck fault automated recovery cycle.
+        #Not used in final system so commented out, manual control used instead
         '''#if command to run mining is received activate system
         if run_mining.run_mining_flag.data == True:
             #start deploy timer
@@ -139,7 +142,7 @@ if __name__ == '__main__':
             #set timer to run hopper for (x)s
             timer1 = time.time() + 0.01
             while time.time() < timer1:
-                #publish x command to motors node
+                #publish command to motors node
                 extensor_motor_pub(0)
                 rate.sleep()
         
@@ -147,7 +150,7 @@ if __name__ == '__main__':
             #set timer to run hopper for (x)s
             timer2 = time.time() + 0.01
             while time.time() < timer2:
-                #publish x command to motors node
+                #publish command to motors node
                 extensor_motor_pub(-1)
                 rate.sleep()
 
@@ -155,7 +158,7 @@ if __name__ == '__main__':
             #set timer to run hopper for (x)s
             timer3 = time.time() + 0.01
             while time.time() < timer3:
-                #publish x command to motors node
+                #publish command to motors node
                 extensor_motor_pub(1)
                 rate.sleep()
         
@@ -163,7 +166,7 @@ if __name__ == '__main__':
             #set timer to run hopper for (x)s
             timer4 = time.time() + 0.01
             while time.time() < timer4:
-                #publish x command to motors node
+                #publish command to motors node
                 collector_motor_pub(0)
                 rate.sleep()
         
@@ -171,7 +174,7 @@ if __name__ == '__main__':
             #set timer to run hopper for (x)s
             timer5 = time.time() + 0.01
             while time.time() < timer5:
-                #publish x command to motors node
+                #publish command to motors node
                 collector_motor_pub(-1)
                 rate.sleep()
 
@@ -179,42 +182,32 @@ if __name__ == '__main__':
             #set timer to run hopper for (x)s
             timer6 = time.time() + 0.01
             while time.time() < timer6:
-                #publish x command to motors node
+                #publish command to motors node
                 collector_motor_pub(1)
                 rate.sleep()
 
-        #if command to run hopper is received activate system
         if run_hopper.run_hopper_flag.data == 0:
             #set timer to run hopper for (x)s
             hopper_timer = time.time() + 0.01
             while time.time() < hopper_timer:
-                #publish hopper stop (0)
+                #publish command to motors node
                 hopper_motor_pub(0)
-                #print("Running hopper")
                 rate.sleep()
 
         if run_hopper.run_hopper_flag.data == 1:
             #set timer to run hopper for (x)s
             hopper_timer = time.time() + 0.01
             while time.time() < hopper_timer:
-                #publish hopper run FWD signal (1)
+                #publish command to motors node
                 hopper_motor_pub(1)
-                #print("Running hopper")
                 rate.sleep()
 
         if run_hopper.run_hopper_flag.data == -1:
             #set timer to run hopper for (x)s
             hopper_timer = time.time() + 0.01
             while time.time() < hopper_timer:
-                #publish hopper run REV signal (-1)
+                #publish command to motors node
                 hopper_motor_pub(-1)
-                #print("Running hopper")
                 rate.sleep()
-
-        #when not actively cycling the mining or hopper systems publish OFF commands to motors
-        #extensor_motor_pub(non_cycle_null_val)
-        #collector_motor_pub(non_cycle_null_val)
-        #hopper_motor_pub(non_cycle_null_val)
-        #print("listening")
 
         rate.sleep()

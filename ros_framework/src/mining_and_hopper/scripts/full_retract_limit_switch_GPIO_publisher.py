@@ -21,7 +21,7 @@ if __name__ == '__main__':
     rate = rospy.Rate(50)
     #keep node running unless CTRL C pressed
     while not rospy.is_shutdown():
-        #read GPIO pin for stuck-fault signal from arduino
+        #read GPIO pin for full-retract signal from arduino
         full_retract = GPIO.input(FULL_RETRACT_LIMIT_GPIO_PIN)
         #publish message to ROS framework
         pub.publish(full_retract)

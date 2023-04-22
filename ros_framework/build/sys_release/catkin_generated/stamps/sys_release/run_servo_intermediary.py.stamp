@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+#script acts as intermediary signal processor converting periodic command signals
+#from keyboard controller into continuous messages understood by ROS message system
+
 #import needed libraries
 import rospy
 import time
@@ -28,22 +31,28 @@ class sys_deploy_pub:
 if __name__ == '__main__':
     #initialize node
     rospy.init_node('run_servo_intermediary')
+    #publish rate (Hz)
     rate = rospy.Rate(100)
 
     #keep node running unless CTRL C pressed
     while not rospy.is_shutdown():
+        #initialize subscriber
         sys_dep = sys_deploy_sub()
         
+
         if sys_dep.gpio_output.data == 0:
+            #set timer to run hopper for (x)s
             timer1 = time.time() + 0.01
             while time.time() < timer1:
+                #publish servo command signal to GPIO handler
                 sys_deploy_pub(False)
                 rate.sleep()
         
         if sys_dep.gpio_output.data == 1:
-            #set timer to run for 1s
+            #set timer to run hopper for (x)s
             timer2 = time.time() + 0.01
             while time.time() < timer2:
+                #publish servo command signal to GPIO handler
                 sys_deploy_pub(True)
                 rate.sleep()
 

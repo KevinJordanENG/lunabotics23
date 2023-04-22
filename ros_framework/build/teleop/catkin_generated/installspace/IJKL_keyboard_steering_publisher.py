@@ -11,6 +11,7 @@ if __name__ == '__main__':
     #initialize node
     rospy.init_node('IJKL_keyboard_steering_publisher')
 
+    #persistent menu
     print("-----------------------------------------------------")
     print("----------TELEOP KEYBOARD MANUAL STEERING------------")
     print("-----------------------------------------------------")

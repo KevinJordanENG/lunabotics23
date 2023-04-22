@@ -16,11 +16,13 @@
 #include <thread>
 #include <unistd.h>
 
+//setup needed namespaces for CTRE Phoenix API
 using namespace ctre::phoenix;
 using namespace ctre::phoenix::platform;
 using namespace ctre::phoenix::motorcontrol;
 using namespace ctre::phoenix::motorcontrol::can;
 
+//initialize TalonSRX Controller objetcs
 std::string interface = "can0";
 TalonSRX talFRight(1, interface); //specify interface
 TalonSRX talFLeft(2); //front left
@@ -30,6 +32,7 @@ TalonSRX talExtend(5); //extensor
 TalonSRX talCollect(6); //collector
 TalonSRX talHopper(7); //hopper
 
+//define class to store command signal input data & function calls to motors
 class command_data {
 public:
     int x_motor_input_cmd = 0;
@@ -44,57 +47,61 @@ public:
     void runHopperMotorCallback(const std_msgs::Int16 &msg7);
 };
 
+//x command signal run motors action function
 void command_data::runXCallback(const std_msgs::Int16 &msg1) {
     x_motor_input_cmd = msg1.data;
 }
 
+//theta command signal run motors action function
 void command_data::runThetaCallback(const std_msgs::Int16 &msg2) {
     theta_motor_input_cmd = msg2.data;
 }
 
+//extensor command signal run motors action function
 void command_data::runExtendMotorCallback(const std_msgs::Int16 &msg5) {
     extend_motor_input_cmd = msg5.data;
 }
 
+//collector command signal run motors action function
 void command_data::runCollectMotorCallback(const std_msgs::Int16 &msg6) {
     collect_motor_input_cmd = msg6.data;
 }
 
+//hopper command signal run motors action function
 void command_data::runHopperMotorCallback(const std_msgs::Int16 &msg7) {
     hopper_motor_input_cmd = msg7.data;
 }
 
-void initDrive()
-{
+//initialize drivetrain with 2 motors directions switched so all drive in same direction
+void initDrive() {
 	/* both talons should blink green when driving forward */
-	talFRight.SetInverted(true);
-	talBRight.SetInverted(true);
+    talFRight.SetInverted(true);
+    talBRight.SetInverted(true);
 }
 
-void drive(double x, double theta, double extend, double collect, double hopper)
-{
-	
-    //FIXME-FIXME-FIXME-----NEED TO ADD TURNING MATH HERE------FIXME-FIXME-FIXME
+//motor activation main function
+void drive(double x, double theta, double extend, double collect, double hopper) {
+    //drivetrain motor control combination of x & theta for FWD/REV + turning @ same time
     double right2Motors = - x - theta;
-	double left2Motors = - x + theta; /* positive turn means turn robot LEFT */
-
-	talFRight.Set(ControlMode::PercentOutput, right2Motors);
+    double left2Motors = - x + theta; /* positive turn means turn robot LEFT */
+    //setup controller modes to use %
+    talFRight.Set(ControlMode::PercentOutput, right2Motors);
     talFLeft.Set(ControlMode::PercentOutput, left2Motors);
-	talBLeft.Set(ControlMode::PercentOutput, left2Motors);
-	talBRight.Set(ControlMode::PercentOutput, right2Motors);
+    talBLeft.Set(ControlMode::PercentOutput, left2Motors);
+    talBRight.Set(ControlMode::PercentOutput, right2Motors);
     talExtend.Set(ControlMode::PercentOutput, extend);
-	talCollect.Set(ControlMode::PercentOutput, collect);
-	talHopper.Set(ControlMode::PercentOutput, hopper);
+    talCollect.Set(ControlMode::PercentOutput, collect);
+    talHopper.Set(ControlMode::PercentOutput, hopper);
 }
 
-/** simple wrapper for code cleanup */
-void sleepApp(int ms)
-{
-	std::this_thread::sleep_for(std::chrono::milliseconds(ms));
+/* simple wrapper for code cleanup */
+void sleepApp(int ms) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(ms));
 }
 
+//main motor control
 int main(int argc, char **argv){
-    
+    //initialize class object and vars
     command_data input_sigs;
     double x = 0.0;
     double theta = 0.0;
@@ -102,13 +109,16 @@ int main(int argc, char **argv){
     double collect = 0.0;
     double hopper = 0.0;
 
-    /* setup drive */
-	initDrive(); 
+    //setup drive
+    initDrive(); 
 
+    //initialize ROS node
     ros::init(argc, argv, "vex_talon_srx_motor_controllers_subscriber");
     ros::NodeHandle nh;
+    //set rate (Hz)
     ros::Rate loop_rate(100);
 
+    //setup signal ROS message subscribers
     ros::Subscriber x_sub = 
         nh.subscribe("x_cmd_velocity", 1000, &command_data::runXCallback, &input_sigs);
     ros::Subscriber theta_sub = 
@@ -120,6 +130,7 @@ int main(int argc, char **argv){
     ros::Subscriber hopper_sub = 
         nh.subscribe("hopper_cmd_signal", 1000, &command_data::runHopperMotorCallback, &input_sigs);
 
+    //continue until CTRL C is pressed or other exit
     while (ros::ok()) {
 
         //motors OFF while waiting for command
@@ -213,6 +224,7 @@ int main(int argc, char **argv){
             hopper = -0.9;
         }
         
+        //take received motor activationsignals and drive motors as commanded
         drive(x, theta, extend, collect, hopper);
         ctre::phoenix::unmanaged::Unmanaged::FeedEnable(100);
         sleepApp(20);
