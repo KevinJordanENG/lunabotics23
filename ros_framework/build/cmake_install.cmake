@@ -138,6 +138,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/und-robotics/lunabotics23/ros_framework/build/mining_and_hopper/cmake_install.cmake")
   include("/home/und-robotics/lunabotics23/ros_framework/build/sys_release/cmake_install.cmake")
   include("/home/und-robotics/lunabotics23/ros_framework/build/teleop/cmake_install.cmake")
+  include("/home/und-robotics/lunabotics23/ros_framework/build/luna_rover/cmake_install.cmake")
 
 endif()
 

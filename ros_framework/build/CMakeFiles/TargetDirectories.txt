@@ -100,3 +100,11 @@
 /home/und-robotics/lunabotics23/ros_framework/build/teleop/CMakeFiles/install/local.dir
 /home/und-robotics/lunabotics23/ros_framework/build/teleop/CMakeFiles/rebuild_cache.dir
 /home/und-robotics/lunabotics23/ros_framework/build/teleop/CMakeFiles/install.dir
+/home/und-robotics/lunabotics23/ros_framework/build/luna_rover/CMakeFiles/install/strip.dir
+/home/und-robotics/lunabotics23/ros_framework/build/luna_rover/CMakeFiles/install/local.dir
+/home/und-robotics/lunabotics23/ros_framework/build/luna_rover/CMakeFiles/test.dir
+/home/und-robotics/lunabotics23/ros_framework/build/luna_rover/CMakeFiles/list_install_components.dir
+/home/und-robotics/lunabotics23/ros_framework/build/luna_rover/CMakeFiles/edit_cache.dir
+/home/und-robotics/lunabotics23/ros_framework/build/luna_rover/CMakeFiles/_catkin_empty_exported_target.dir
+/home/und-robotics/lunabotics23/ros_framework/build/luna_rover/CMakeFiles/rebuild_cache.dir
+/home/und-robotics/lunabotics23/ros_framework/build/luna_rover/CMakeFiles/install.dir
