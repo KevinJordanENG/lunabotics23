@@ -14,7 +14,7 @@ class sys_deploy_sub:
         self.sys_deploy_subscriber = rospy.Subscriber('run_servo_key', Int16, self.run_servo_command_callback)
     #callback function assigning msg recieved to class level varibale
     def run_servo_command_callback(self, msg):
-        self.gpio_output = msg.data
+        self.gpio_output.data = msg.data
 
 class sys_deploy_pub:
     #object initialize as publisher and pass command args from main program node
@@ -34,14 +34,17 @@ if __name__ == '__main__':
     while not rospy.is_shutdown():
         sys_dep = sys_deploy_sub()
         
-        if sys_dep.gpio_output.data == 1:
-            #set timer to run for 1s
+        if sys_dep.gpio_output.data == 0:
             timer1 = time.time() + 0.01
             while time.time() < timer1:
-                sys_deploy_pub(True)
-                rate.sleep()
-        if sys_dep.gpio_output.data == 0:
-            timer2 = time.time() + 0.01
-            while time.time() < timer2:
                 sys_deploy_pub(False)
                 rate.sleep()
+        
+        if sys_dep.gpio_output.data == 1:
+            #set timer to run for 1s
+            timer2 = time.time() + 0.01
+            while time.time() < timer2:
+                sys_deploy_pub(True)
+                rate.sleep()
+
+        rate.sleep()

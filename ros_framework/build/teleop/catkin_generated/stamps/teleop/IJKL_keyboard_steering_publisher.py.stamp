@@ -18,7 +18,7 @@ if __name__ == '__main__':
     print("-----------------------------------------------------")
     print("---i=FWD---m=REV---j=LEFT---l=RIGHT---k=FULL-STOP----")
     print("-u=FWD+LEFT---o=FWD+RIGHT---n=REV+LEFT---,=REV+RIGHT-")
-    print("----------s=SLOW---f=FAST---h=HOP-FWD---y=HOP-REV----")
+    print("-d=SERVO---s=SLOW---f=FAST---h=HOP-FWD---y=HOP-REV---")
     print("-------e=EXT---r=RTCT---x=COLL-FWD---z=COLL-REV------")
     print("-----------------------------------------------------")
     print("-AFTER-ANY-COMMAND-SENT-MUST-PRESS-ANY-NON-CODED-KEY-")
@@ -116,10 +116,11 @@ if __name__ == '__main__':
             else:
                 pass
 
-        #HOPPER RUN command
+        #HOPPER FWD command
         elif key == 'h':
             hopper = 1
 
+        #Hopper REV command
         elif key == 'y':
             hopper = -1
 
