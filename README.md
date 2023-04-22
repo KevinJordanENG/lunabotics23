@@ -48,6 +48,7 @@ This was the only special environmental setup that was not cleanly documented in
 The CTRE Phoenix API was needed for the TalonSRX VEX motor controllers used in the rover. To integrate this into ROS, a porting was done on the C++ source code, headers, and libs. The `ctre_motors` ROS pkg contains the ported API and can be explored for reference to functions. To use the .so files a workaround was used as described in the README in the `/ctre_motors/lib` directory. An example and the source code used as a base for development using the CTRE Phoenix API can be found along with all API documentation here:
 
 <https://github.com/CrossTheRoadElec/Phoenix-Linux-SocketCAN-Example>
+
 <https://v5.docs.ctr-electronics.com/en/latest/index.html>
 
 
