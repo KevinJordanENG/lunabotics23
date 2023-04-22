@@ -9,22 +9,22 @@ Breakdown of all important directories as follows:
 
 1. arduino - scripts used by the Arduino MEGA 2560
 2. ros_framework - main system architecture and all functional rover packages
-    1. src
+    - src
         1. autonomy - unused due to lack of time
         2. ctre_motors - Port of CTRE API into ROS and VEX motor control code
-            1. include - needed header files for CTRE API
-            2. lib - .so files for CTRE API (see notes in README)
-            3. src - TalonSRX VEX motor control script
+            - include - needed header files for CTRE API
+            - lib - .so files for CTRE API (see notes in README)
+            - src - TalonSRX VEX motor control script
         3. drivetrain - drivetrain motor signal handling
-            1. scripts - intermediary signal/message handling script
+            - scripts - intermediary signal/message handling script
         4. launch - launch file starting full/all rover software systems
         5. luna_rover - gazebo simulation work for rover (see notes in README)
         6. mining_and_hopper - extensor, collector, & hopper signal handling
-            1. scripts - signal handling, GPIO to Arduino, & limit switch scripts
+            - scripts - signal handling, GPIO to Arduino, & limit switch scripts
         7. sys_release - servo deployment
-            1. scripts - servo signal handling between Jetson & Arduino
+            - scripts - servo signal handling between Jetson & Arduino
         8. teleop - Tele-Op remote control
-            1. scripts - keyboard controller & video feed from ZED
+            - scripts - keyboard controller & video feed from ZED
 3. testing_src - test scripts not used in rover
 
 
@@ -59,9 +59,10 @@ SSH over to your microcontroller and make sure X forwarding is configured. This 
 
 <https://ostechnix.com/how-to-configure-x11-forwarding-using-ssh-in-linux/>
 
-To make sure ROS is properly installed run the command `roscore` in a new terminal. If a similar output to the image below is seen congrats! ROS is working properly!
+To make sure ROS is properly installed run the command `roscore` in a new terminal. If a similar output to below is seen congrats! ROS is working properly!
 
-![roscore proper launch](file:///home/kevin/Pictures/Screenshots/Screenshot%20from%202023-04-22%2018-23-01.png)
+    process[rosout-1]: started with pid [3592]
+    started core service [/rosout]
 
 If not, check the tutorials linked above for install / config troubleshooting help.
 
