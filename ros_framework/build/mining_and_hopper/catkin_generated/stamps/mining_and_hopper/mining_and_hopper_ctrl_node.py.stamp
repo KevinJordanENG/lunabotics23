@@ -46,10 +46,10 @@ class run_collector_sub:
 #class object for easier main node flow programming: run_hopper message ROS subscriber
 class run_hopper_sub:
     #class level variable accessable in main program node
-    run_hopper_flag = Bool()
+    run_hopper_flag = Int16()
     #object initialize as subscriber
     def __init__(self):
-        self.run_hopper_subscriber = rospy.Subscriber('run_hopper_state', Bool, self.run_hopper_flag_callback)
+        self.run_hopper_subscriber = rospy.Subscriber('run_hopper_state', Int16, self.run_hopper_flag_callback)
     #callback function assigning msg recieved to class level varibale
     def run_hopper_flag_callback(self, msg):
         self.run_hopper_flag.data = msg.data
@@ -184,7 +184,16 @@ if __name__ == '__main__':
                 rate.sleep()
 
         #if command to run hopper is received activate system
-        if run_hopper.run_hopper_flag.data == True:
+        if run_hopper.run_hopper_flag.data == 0:
+            #set timer to run hopper for (x)s
+            hopper_timer = time.time() + 0.01
+            while time.time() < hopper_timer:
+                #publish hopper stop (0)
+                hopper_motor_pub(0)
+                #print("Running hopper")
+                rate.sleep()
+
+        if run_hopper.run_hopper_flag.data == 1:
             #set timer to run hopper for (x)s
             hopper_timer = time.time() + 0.01
             while time.time() < hopper_timer:
@@ -192,12 +201,20 @@ if __name__ == '__main__':
                 hopper_motor_pub(1)
                 #print("Running hopper")
                 rate.sleep()
-            hopper_motor_pub(0)
+
+        if run_hopper.run_hopper_flag.data == -1:
+            #set timer to run hopper for (x)s
+            hopper_timer = time.time() + 0.01
+            while time.time() < hopper_timer:
+                #publish hopper run REV signal (-1)
+                hopper_motor_pub(-1)
+                #print("Running hopper")
+                rate.sleep()
 
         #when not actively cycling the mining or hopper systems publish OFF commands to motors
         #extensor_motor_pub(non_cycle_null_val)
         #collector_motor_pub(non_cycle_null_val)
-        hopper_motor_pub(non_cycle_null_val)
+        #hopper_motor_pub(non_cycle_null_val)
         #print("listening")
 
         rate.sleep()

@@ -18,7 +18,7 @@ if __name__ == '__main__':
     print("-----------------------------------------------------")
     print("---i=FWD---m=REV---j=LEFT---l=RIGHT---k=FULL-STOP----")
     print("-u=FWD+LEFT---o=FWD+RIGHT---n=REV+LEFT---,=REV+RIGHT-")
-    print("-------------s=SLOW---f=FAST---h=HOP-ON--------------")
+    print("----------s=SLOW---f=FAST---h=HOP-FWD---y=HOP-REV----")
     print("-------e=EXT---r=RTCT---x=COLL-FWD---z=COLL-REV------")
     print("-----------------------------------------------------")
     print("-AFTER-ANY-COMMAND-SENT-MUST-PRESS-ANY-NON-CODED-KEY-")
@@ -30,7 +30,7 @@ if __name__ == '__main__':
     pub_theta = rospy.Publisher('theta_cmd_code', Int16, queue_size = 20)
     pub_extensor = rospy.Publisher('run_extensor_state', Int16, queue_size = 20)
     pub_collector = rospy.Publisher('run_collector_state', Int16, queue_size = 20)
-    pub_hopper = rospy.Publisher('run_hopper_state', Bool, queue_size = 20)
+    pub_hopper = rospy.Publisher('run_hopper_state', Int16, queue_size = 20)
     pub_servo = rospy.Publisher('run_servo_key', Int16, queue_size = 20)
     #simulated stuck for testing
     #pub_stuck = rospy.Publisher('stuck_fault_state', Bool, queue_size = 20)
@@ -44,7 +44,7 @@ if __name__ == '__main__':
     theta = 0
     extend = 0
     collect = 0
-    hopper = False
+    hopper = 0
     servo = 0
     #simulated stuck
     #stuck = False
@@ -118,7 +118,10 @@ if __name__ == '__main__':
 
         #HOPPER RUN command
         elif key == 'h':
-            hopper = True
+            hopper = 1
+
+        elif key == 'y':
+            hopper = -1
 
         #EXTEND command
         elif key == 'e':
@@ -155,7 +158,7 @@ if __name__ == '__main__':
             theta = 0
             extend = 0
             collect = 0
-            hopper = False
+            hopper = 0
             servo = 0
             #stuck = False
 

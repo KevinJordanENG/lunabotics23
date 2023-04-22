@@ -134,27 +134,27 @@ int main(int argc, char **argv){
         }
         else if (input_sigs.x_motor_input_cmd == 1) {
             std::cout << "FWD-SLOW\n";
-            x = 0.10;
+            x = 0.15;
         }
         else if (input_sigs.x_motor_input_cmd == 2) {
             std::cout << "FWD-MID\n";
-            x = 0.20;
+            x = 0.3;
         }
         else if (input_sigs.x_motor_input_cmd == 3) {
             std::cout << "FWD-FAST\n";
-            x = 0.25;
+            x = 0.5;
         }
         else if (input_sigs.x_motor_input_cmd == -1) {
             std::cout << "REV-SLOW\n";
-            x = -0.10;
+            x = -0.15;
         }
         else if (input_sigs.x_motor_input_cmd == -2) {
             std::cout << "REV-MID\n";
-            x = -0.20;
+            x = -0.3;
         }
         else if (input_sigs.x_motor_input_cmd == -3) {
             std::cout << "REV-FAST\n";
-            x = -0.25;
+            x = -0.5;
         }
 
         //theta rotation command states
@@ -164,11 +164,11 @@ int main(int argc, char **argv){
         }
         else if (input_sigs.theta_motor_input_cmd == 1) {
             std::cout << "LEFT\n";
-            theta = 0.10;
+            theta = 0.3;
         }
         else if (input_sigs.theta_motor_input_cmd == -1) {
             std::cout << "RIGHT\n";
-            theta = -0.10;
+            theta = -0.3;
         }
 
         //extensor motor states
@@ -178,11 +178,11 @@ int main(int argc, char **argv){
         }
         else if (input_sigs.extend_motor_input_cmd == 1) {
             std::cout << "EXT-FWD\n";
-            extend = 0.6;
+            extend = 0.9;
         }
         else if (input_sigs.extend_motor_input_cmd == -1) {
             std::cout << "EXT-REV\n";
-            extend = -0.9;
+            extend = -0.6;
         }
 
         //collector motor states
