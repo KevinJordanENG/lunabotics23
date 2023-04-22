@@ -32,7 +32,7 @@ Breakdown of all important directories as follows:
 
 For those new to ROS, the tutorials do a great job and can be found here:
 
-<wiki.ros.org/ROS/Tutorials>
+<http://wiki.ros.org/ROS/Tutorials>
 
 The NVIDIA Jetson Nano used supported only Ubuntu 18.04 and therefore ROS Melodic was
 the only compatible option. Melodic is still built on Python 2 which complicates using any Python 3 libraries. The workaround used was to install catkin (ROS's build system) directly as a Python 3 pakage using pip3 instead of pip (Python 2).
