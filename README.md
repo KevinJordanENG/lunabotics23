@@ -1,9 +1,6 @@
 # NASA Lunabotics 2023 - UND Robotics Team RAPTOR
 
-This repository contains all source code for the 2022/2023 NASA Lunabotics
-Competition regolith mining robot. The rover used ROS on an NVIDIA Jetson
-as the main control unit and an Arduino as a signal processing and over
-current/over voltage protector to the Jetson.
+This repository contains all source code for the 2022/2023 NASA Lunabotics Competition regolith mining robot. The rover used ROS on an NVIDIA Jetson as the main control unit and an Arduino as a signal processing and over current/over voltage protector to the Jetson.
 
 Breakdown of all important directories as follows:
 
@@ -34,8 +31,7 @@ For those new to ROS, the tutorials do a great job and can be found here:
 
 <http://wiki.ros.org/ROS/Tutorials>
 
-The NVIDIA Jetson Nano used supported only Ubuntu 18.04 and therefore ROS Melodic was
-the only compatible option. Melodic is still built on Python 2 which complicates using any Python 3 libraries. The workaround used was to install catkin (ROS's build system) directly as a Python 3 pakage using pip3 instead of pip (Python 2).
+The NVIDIA Jetson Nano used supported only Ubuntu 18.04 and therefore ROS Melodic was the only compatible option. Melodic is still built on Python 2 which complicates using any Python 3 libraries. The workaround used was to install catkin (ROS's build system) directly as a Python 3 pakage using pip3 instead of pip (Python 2).
 
 `pip3 install catkin-pkg`
 
