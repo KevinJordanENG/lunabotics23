@@ -21,7 +21,7 @@ bool run_servo;
 int servo_position = 180;
 
 const int jetson_run_servo_in_pin = A0;
-const int servo_out_pin = 9;
+const int servo_out_pin = 5;
 
 //~~~~~~~~~~~~~~~~~~shunt resistor stuck fault var defs~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 int shunt_current_reading;
@@ -74,7 +74,7 @@ void loop() {
     jetson_run_servo_in = analogRead(jetson_run_servo_in_pin);
     
     //determine if logic HIGH or LOW
-    if (620 <= jetson_run_servo_in) run_servo = true;
+    if (290 <= jetson_run_servo_in) run_servo = true;
     else run_servo = false;
 
     //are we supposed to run servo?
@@ -82,17 +82,17 @@ void loop() {
         //have we already deployed so no need to run again?
         if (already_ran_flag == false) {
             //gradually actuate to oposite of servo position range
-            for (servo_position = 180; servo_position <= 0; servo_position += 1) {
+            for (servo_position = 180; servo_position >= 0; servo_position -= 1) {
                 deploy_servo.write(servo_position);
                 Serial.println(jetson_run_servo_in);
-                delay(5); //DELAY CAN BE MODIFIED TO SET DESIRED ROTATION SPEED (lower is faster)
+                delay(15); //DELAY CAN BE MODIFIED TO SET DESIRED ROTATION SPEED (lower is faster)
             }
             //once deployement ran set flag so does not run again
             already_ran_flag = true;
         }
     }
 
-    
+    /*
     //~~~~~~~~~~~~~~~~~~shunt resistor stuck fault signal code~~~~~~~~~~~~~~~~~~~~~~//
     //set system timer to be able to time stuck-fault warning state
     timer = (int)(millis()/1000);
@@ -168,7 +168,7 @@ void loop() {
         }
     }
 
-}
+*/}
 
 
 double EXPONENTIAL_MOVING_AVG(double avg, double new_sample) {
