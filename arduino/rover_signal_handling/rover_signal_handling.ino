@@ -18,7 +18,7 @@ bool run_servo;
 //MANUALLY SET FULLY TO ONE SIDE & IS SAME POSITION PRE SYSTEM DEPLOYEMENT.         //
 //ALWAYS CHECK THAT SERVO POSITION IS MANUALLY RESET BEFORE RESETTING ROVER SYSTEM  //
 //OTHERWISE SERVO WILL FORCEFULLY RESET TO "0" UPON SYSTEM POWER UP / RESET.        //
-int servo_position = 180;
+int servo_position = 0;
 
 const int jetson_run_servo_in_pin = A0;
 const int servo_out_pin = 5;
@@ -82,11 +82,12 @@ void loop() {
         //have we already deployed so no need to run again?
         if (already_ran_flag == false) {
             //gradually actuate to oposite of servo position range
-            for (servo_position = 180; servo_position >= 0; servo_position -= 1) {
+            for (servo_position = 0; servo_position <= 180; servo_position += 1) {
                 deploy_servo.write(servo_position);
                 Serial.println(jetson_run_servo_in);
                 delay(15); //DELAY CAN BE MODIFIED TO SET DESIRED ROTATION SPEED (lower is faster)
             }
+            deploy_servo.write(0); //initialize position
             //once deployement ran set flag so does not run again
             already_ran_flag = true;
         }
